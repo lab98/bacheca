@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-   <head>
+    <head>
     <title>Login Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,6 +64,15 @@
                   <label class="form-check-label" for="remember">Remember me</label>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Login</button>
+              </form>
+            </div>
+            <div class="card-footer">
+              <p class="text-muted text-center mb-0">Forgot your password?</p>
+              <form class="mt-3">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
               </form>
             </div>
           </div>
