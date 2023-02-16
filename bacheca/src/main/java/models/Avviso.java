@@ -1,5 +1,7 @@
 package models;
 
+import java.util.LinkedList;
+
 public class Avviso {
 	
 	
@@ -10,6 +12,7 @@ private String dataPub;
 private String dataMod;
 private String dataScad;
 private String testo;
+private LinkedList<Allegato> allegati;
 /**
  * @param idAvviso
  * @param idUtente
@@ -19,6 +22,7 @@ private String testo;
  * @param dataScad
  * @param testo
  */
+
 public Avviso(int idAvviso, int idUtente, String livello, String dataPub, String dataMod, String dataScad,
 		String testo) {
 	this.idAvviso = idAvviso;
@@ -29,6 +33,15 @@ public Avviso(int idAvviso, int idUtente, String livello, String dataPub, String
 	this.dataScad = dataScad;
 	this.testo = testo;
 }
+
+/**
+ * @param allegati
+ */
+public Avviso(LinkedList<Allegato> allegati) {
+	super();
+	this.allegati = allegati;
+}
+
 /**
  * 
  */
@@ -117,6 +130,14 @@ public String getTesto() {
  */
 public void setTesto(String testo) {
 	this.testo = testo;
+}
+
+public LinkedList<Allegato> getAllegati() {
+	return allegati;
+}
+
+public void setAllegati(LinkedList<Allegato> allegati) {
+	this.allegati = allegati;
 }
 
 
