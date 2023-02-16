@@ -16,6 +16,8 @@ public class Utente {
 	private boolean tipo;
 	private String email;
 	private String password;
+	private String token;
+	private boolean valid;
 	/**
 	 * @param idUtente
 	 * @param nome
@@ -26,7 +28,7 @@ public class Utente {
 	 * @param password
 	 */
 	public Utente(int idUtente, String nome, String cognome, String ruolo, boolean tipo, String email,
-			String password) {
+			String password, String token, boolean valid) {
 		this.idUtente = idUtente;
 		this.nome = nome;
 		this.cognome = cognome;
@@ -34,6 +36,8 @@ public class Utente {
 		this.tipo = tipo;
 		this.email = email;
 		this.password = password;
+		this.token = token;
+		this.valid = valid;
 	}
 	public Utente() {
 		super();
@@ -80,5 +84,18 @@ public class Utente {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public boolean isValid() {
+		return valid;
+	}
+	public void setValid(boolean valid) {
+		this.valid = valid;
+	}
+	
 	
 }
