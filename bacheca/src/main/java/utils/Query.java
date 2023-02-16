@@ -41,6 +41,19 @@ public class Query {
 	private static String setTokenQuery="UPDATE utente SET token =?, valid=? WHERE email=?";
 	private static String getUtenteFromIdQuery="SELECT * FROM utente WHERE id_utente = ?";
 	
+	/*** Stringhe query Avviso ***/
+	
+	private static String aggiungiAvvisoQuery = "INSERT INTO avviso (idutente, livello, datapub, datamod, datascad, testo) VALUES (?,?,?,?,?,?)";
+	private static String modificaAvvisoQuery = "UPDATE avviso SET livello=?, datamod=?, datascad=?, testo=? WHERE idavviso=?";
+	private static String eliminaAvvisoQuery = "DELETE FROM avviso WHERE idavviso=?";
+	private static String getListaAvvisiUtenteQuery = "SELECT * FROM avviso WHERE idutente=?";
+	
+	
+	/*** Stringhe query Allegati ***/
+	
+	private static String aggiungiAllegato="INSERT INTO allegato (idallegato, idavviso, percorso) VALUES (?,?,?)";
+	private static String rimuoviAllegato="DELETE FROM allegato WHERE idallegato=?";
+	
 	/*** Metodo per hashing ***/
 			
 	public static String hashPassword(String password) throws NoSuchAlgorithmException {
