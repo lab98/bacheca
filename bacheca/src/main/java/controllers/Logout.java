@@ -36,12 +36,12 @@ public class Logout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			Regolatore controllo= new Regolatore();
-			String condition = controllo.controlloAccesso(request, response);
+			Regolatore reg= new Regolatore();
+			String condition = reg.controlloAccesso(request, response);
 			if(!condition.equals("in")) {
 				HttpSession session = request.getSession();
 				session.invalidate();
-				response.sendRedirect(request.getContextPath()+"");
+				response.sendRedirect(request.getContextPath()+"/Login");
 		}else {
 			response.sendRedirect(request.getContextPath()+"/Login");
 		}

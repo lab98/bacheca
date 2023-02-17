@@ -33,7 +33,7 @@ public class Query {
 	
 	/*** Stringhe Query per Utente***/
 	
-	private static String registrazioneQuery = "INSERT INTO utente (nome, cognome,tipo, ruolo, email, password) VALUES (?,?,?,?,?,?)";	
+	private static String registrazioneQuery = "INSERT INTO utente (nome, cognome, tipo, ruolo, email, password) VALUES (?,?,?,?,?,?)";	
 	private static String loginQuery = "SELECT * FROM utente WHERE email = ?";
 	private static String getUtenteFromTokenQuery="SELECT * FROM utente WHERE token = ?";
 	private static String modificaUtenteQuery ="UPDATE utente SET nome =?, cognome=?, ruolo=? WHERE id_utente=? ";
@@ -190,20 +190,24 @@ public class Query {
 		
 		Connection cn = connessione.apriConnessione();
 		String query = registrazioneQuery;
-		statement= cn.prepareStatement(query);
 		PreparedStatement stat = cn.prepareStatement(loginQuery);
 		stat.setString(1, email);
 		stat.executeQuery();
+		System.out.println("utente controllato");
+		statement= cn.prepareStatement(query);
 		ResultSet resLogin = stat.getResultSet();
 		if(!resLogin.next()) {
+			System.out.println("utente non presente");
 			statement.setString(1,nome);
 			statement.setString(2,cognome);
 			statement.setBoolean(3, tipo);
 			statement.setString(4, ruolo);
 			statement.setString(5,email);
 			statement.setString(6,hashPassword(password));
-			statement.executeUpdate();
+			statement.execute();
+			System.out.println("utente registrato");
 			cn.close();
+			System.out.println("utente registrato");
 			return true;
 		}else
 			cn.close();

@@ -41,7 +41,7 @@
 					<a class="nav-link" id="AdminPage" href="AdminPage">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="GestioneAvvisi" href="GestioneAvvisi">Utenti</a>
+					<a class="nav-link" id="GestioneUtenti" href="GestioneUtenti">Utenti</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" id="Logout" href="Logout">Logout</a>
