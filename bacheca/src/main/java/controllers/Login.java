@@ -53,19 +53,21 @@ public class Login extends HttpServlet {
 		try {
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
-			System.out.println(email+password);
 			HttpSession session = request.getSession();	
 			Utente utente = Query.accedi(email, password);
 			if(utente.getIdUtente()!=0) {
 				session.setAttribute("utente", utente);
-				response.sendRedirect(request.getContextPath()+"/UserPage");
-			
+				if(utente.isTipo()) {
+					response.sendRedirect(request.getContextPath()+"/AdminPage");
 				}else {
+					response.sendRedirect(request.getContextPath()+"/UserPage");
+				}
+				
+			}else {
 					System.out.println("Pass errata");
             		String message = "Username o Password errata!";
             		Messaggio m= new Messaggio(0,"login", message);
             		session.setAttribute("messaggio", m);
-            		System.out.println(request.getContextPath());
             		response.sendRedirect(request.getContextPath()+"/Login");
 				}
 			}catch (Exception e) {
