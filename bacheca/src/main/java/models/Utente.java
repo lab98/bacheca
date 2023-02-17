@@ -96,6 +96,13 @@ public class Utente {
 	public void setValid(boolean valid) {
 		this.valid = valid;
 	}
+	@Override
+	public String toString() {
+		return "Utente [idUtente=" + idUtente + ", nome=" + nome + ", cognome=" + cognome + ", ruolo=" + ruolo
+				+ ", tipo=" + tipo + ", email=" + email + ", password=" + password + ", token=" + token + ", valid="
+				+ valid + "]";
+	}
+	
 	
 	
 }

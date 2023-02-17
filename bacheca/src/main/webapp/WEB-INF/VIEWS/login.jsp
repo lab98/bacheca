@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="models.Messaggio" %>
+<% Messaggio m= (Messaggio) session.getAttribute("messaggio");%>
+<script type="text/javascript">
+        $(document).ready(function() {
+        	$("#email, #password").keyup(function(){
+            	$("#errore").hide();
+        	});
+        });
+</script>
 <!DOCTYPE html>
 <html>
     <head>
@@ -50,24 +59,20 @@
               <h4>Login</h4>
             </div>
             <div class="card-body">
-              <form>
+              <form action="Login" class="was-validated" method="post">
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" id="username" placeholder="Enter username">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="nome.cognome@vigilfuoco.it" pattern="[^@]+@vigilfuoco.it" required>
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password" placeholder="Password">
-                </div>
-                <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input" id="remember">
-                  <label class="form-check-label" for="remember">Remember me</label>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Login</button>
               </form>
             </div>
             <div class="card-footer">
-              <p class="text-muted text-center mb-0">Forgot your password?</p>
+              <p class="text-muted text-center mb-0">Password Dimenticata?</p>
               <form class="mt-3">
                 <div class="form-group">
                   <input type="email" class="form-control" id="email" placeholder="Enter your email">
@@ -85,5 +90,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+<div class="row">
+		<div class="col-2">
+		</div>
+		<div class="col-8">
+		<% if (m != null) { if(m.getJsp()=="login") { %>
+		    <div id="errore" class="alert alert-danger">
+    			<strong>Errore!</strong> ${messaggio.testo}
+    		</div>
+		<% 	session.removeAttribute("messaggio");
+		}} %>
+			
+  			
+		</div>
+				<div class="col-2">
+		</div>
+	</div>
   </body>
 </html>
