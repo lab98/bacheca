@@ -38,7 +38,15 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active">
-					<a class="nav-link" id="Login" href="Login">Bacheca COM-PA</a>
+					<a class="nav-link" id="AdminPage" href="AdminPage">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="GestioneUtenti" href="GestioneUtenti">Utenti</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="Logout" href="Logout">Logout</a>
+				</li>
+				
 			</ul>
 		</div>
 	</nav>
