@@ -20,9 +20,9 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="card shadow-lg p-3 mb-5 rounded bg-primary text-white">
-        <div class="card-header bg-danger">
-          <h3 class="card-title mb-0" >Aggiungi Nuovo Utente</h3>
+      <div class="card shadow-lg p-3 mb-5 rounded bg-ligth">
+        <div class="card-header bg-primary text-light">
+          <h3 class="card-title mb-0 text-light" >Aggiungi Nuovo Utente</h3>
         </div>
         <div class="card-body">
           <form method="post" action="AdminPage">
@@ -55,7 +55,7 @@
                 <option value="admin">Admin</option>
               </select>
             </div>
-            <button type="submit" class="btn-danger">Aggiungi</button>
+            <button type="submit" class="btn-primary">Aggiungi</button>
           </form>
         </div>
       </div>
