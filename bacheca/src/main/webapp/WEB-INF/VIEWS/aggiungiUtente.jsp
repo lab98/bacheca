@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import="models.Messaggio" %>
 <% Messaggio m= (Messaggio) session.getAttribute("messaggio");%>
+
+
+<section>
  <script type="text/javascript">
         $(document).ready(function() {
         	$("#nome, #cognome, #email, #password, #ruolo").keyup(function(){
@@ -9,20 +12,12 @@
         	});
         });
 </script>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card shadow-lg p-3 mb-5 rounded bg-ligth">
-        <div class="card-header bg-primary text-light">
-          <h3 class="card-title mb-0 text-light" >Aggiungi Nuovo Utente</h3>
+        <div class="card-header bg-light text-secondary">
+          <h3 class="card-title mb-0 text-dark" >Aggiungi Nuovo Utente</h3>
         </div>
         <div class="card-body">
           <form method="post" action="AdminPage">
@@ -95,5 +90,4 @@
 		<div class="col-2">
 		</div>
 </div>
-</body>
-</html>
+</section>

@@ -1,57 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bootstrap Modern Footer with Contact Information</title>
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<!-- Custom CSS -->
 
-</head>
-
-
-<body>
-<style>
-    html, body {
-        height: 100%;
-    }
-  
-    #footer {
-        position: relative;
-        bottom: 0;
-        top: 20px;
-        width: 100%;
-        height: 100%
-    }
-</style>
-
-
-    <!-- Your page content here -->
-    <div id="footer" class="bg-danger text-light py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="mb-0">COMANDO PROVINCIALE VIGILI DEL FUOCO PALERMO</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Designed by :</p>
-                    <p class="mb-0">>                    I.I. Luca La Barbera</p>
-                    <p class="mb-0">>                    I.I. Ilenia Mannino</p>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-6 col-lg-4">
-                    <h4>Contatti</h4>
-                    <p><i class="bi bi-geo-alt-fill me-2"></i>Via Alessandro Scarlatti, 16, Palermo</p>
-                    <p><i class="bi bi-phone-fill me-2"></i>(123) 456-7890</p>
-                    <p><i class="bi bi-envelope-fill me-2"></i>comando.palermo@vigilfuoco.it</p>
-                </div>
-            </div>
-        </div>
+<section>
+<footer class="footer fixed-bottom bg-danger">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-6 text-start">
+        <p class="text-white">&copy; 2023 My Website</p>
+      </div>
+      <div class="col-12 col-md-6 text-end">
+        <p class="text-white">Designed by Me</p>
+      </div>
     </div>
-</body>
+  </div>
+</footer>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 
+
+    <script>
+$(document).ready(function() {
+	
+});
+function editValue(id) {
+	  var value = document.getElementById(id);
+	  var newValue = prompt("Enter new value:");
+	  if (newValue !== null) {
+	    value.textContent = newValue;
+	  }
+	}
+function saveChanges(id) {
+	  var nome = document.getElementById("nome").textContent;
+	  var cognome = document.getElementById("cognome").textContent;
+	  var email = document.getElementById("email").textContent;
+	  var ruolo = document.getElementById("ruolo").textContent;
+	  console.log(nome);
+	  
+	  $.ajax({
+          method: "POST",
+          url: "ModificaUser",
+          data:{ idUtente: id, nome: nome, cognome: cognome, email: email, ruolo: ruolo },
+          async: false,
+          success : function (data,stato) {
+          	location.reload();
+          },
+          error : function (richiesta,stato,errori) {
+          	location.reload();
+          }
+      });
+	  
+	  alert("Changes saved successfully!");
+	}
+</script>
+</body>
 </html>

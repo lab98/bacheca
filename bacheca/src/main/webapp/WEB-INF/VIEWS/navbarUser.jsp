@@ -1,38 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bacheca COM-PA</title>
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<!-- Custom CSS -->
-	<link rel="stylesheet" type="text/css" href="css/mystyle.css"> 
-</head>
-<body>
+<section>
+  <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">Bacheca COM-PA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="Login"><img id="logo_comando" name="logo_comando" alt="COM-PA"></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active">
-					<a class="nav-link" id="AdminPage" href="AdminPage">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="GestioneUtenti" href="GestioneUtenti">Utenti</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="Logout" href="Logout">Logout</a>
-				</li>
-				
-			</ul>
-		</div>
-	</nav>
+</nav>
 
-
-</html>
+</section>

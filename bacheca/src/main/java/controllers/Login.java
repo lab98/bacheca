@@ -37,7 +37,9 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"navbar.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
+		dispatcher.include(request, response);
+		dispatcher = request.getRequestDispatcher(basePath+"navbar.jsp");
 		dispatcher.include(request, response);
 		dispatcher = request.getRequestDispatcher(basePath+"login.jsp");
 		dispatcher.include(request, response);

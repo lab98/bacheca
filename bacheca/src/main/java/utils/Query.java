@@ -36,12 +36,13 @@ public class Query {
 	private static String registrazioneQuery = "INSERT INTO utente (nome, cognome, tipo, ruolo, email, password) VALUES (?,?,?,?,?,?)";	
 	private static String loginQuery = "SELECT * FROM utente WHERE email = ?";
 	private static String getUtenteFromTokenQuery="SELECT * FROM utente WHERE token = ?";
-	private static String modificaUtenteQuery ="UPDATE utente SET nome =?, cognome=?, ruolo=? WHERE id_utente=? ";
-	private static String eliminaUtenteQuery ="DELETE FROM utente WHERE id_utente=?";
+	private static String modificaUtenteQuery ="UPDATE utente SET nome =?, cognome =?, email =?, ruolo =? WHERE idutente =?";
+	private static String eliminaUtenteQuery ="DELETE FROM utente WHERE idutente=?";
 	private static String listaUtentiQuery ="SELECT * FROM utente";
 	private static String setPasswordUtenteQuery ="UPDATE utente SET password=? WHERE email=?";
 	private static String setTokenQuery="UPDATE utente SET token =?, valid=? WHERE email=?";
-	private static String getUtenteFromIdQuery="SELECT * FROM utente WHERE id_utente = ?";
+	private static String getUtenteFromIdQuery="SELECT * FROM utente WHERE idutente = ?";
+	private static String getUtentiFromTipoQuery="SELECT * FROM utente WHERE tipo=?";
 	
 	/*** Stringhe query Avviso ***/
 	
@@ -72,7 +73,47 @@ public class Query {
 		return hexStr.toString(); 	
 	}
 	
-	/*** query tabella utente ***/
+	/*** query tabella utente 
+	 * @throws SQLException 
+	 * @throws NamingException ***/
+	
+	public static LinkedList<Utente> getUtentiFromTipo(boolean b) throws NamingException, SQLException{
+		LinkedList<Utente> utenti = new LinkedList<Utente>();
+		Connection cn = connessione.apriConnessione();
+		statement = cn.prepareStatement(getUtentiFromTipoQuery);
+		statement.setBoolean(1, b);
+		statement.executeQuery();
+		ResultSet res = statement.getResultSet();
+		while(res.next()) {
+			Utente utente = new Utente();
+			utente.setIdUtente(res.getInt("idutente"));
+			utente.setNome(res.getString("nome"));
+			utente.setCognome(res.getString("cognome"));
+			utente.setEmail(res.getString("email"));
+			utente.setPassword(res.getString("password"));
+			utente.setRuolo(res.getString("ruolo"));
+			utente.setToken(res.getString("token"));
+			utente.setValid(res.getBoolean("valid"));
+			utente.setTipo(res.getBoolean("tipo"));
+			
+			utenti.add(utente);
+		}
+		cn.close();
+		return utenti; 
+	}
+	
+	public static boolean modificaUtente(int id, String nome, String cognome, String email, String ruolo) throws NamingException, SQLException {
+		Connection cn = connessione.apriConnessione();
+		statement = cn.prepareStatement(modificaUtenteQuery);
+		statement.setString(1, nome);
+		statement.setString(2, cognome);
+		statement.setString(3, email);
+		statement.setString(4, ruolo);
+		statement.setInt(5, id);
+		statement.executeUpdate();
+		cn.close();
+		return true ;
+	}
 	public static Utente getUtenteFromId(int id) throws NamingException, SQLException {
 		Connection cn= connessione.apriConnessione();
 		statement = cn.prepareStatement(getUtenteFromIdQuery);

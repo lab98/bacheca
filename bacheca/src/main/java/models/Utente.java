@@ -3,6 +3,8 @@
  */
 package models;
 
+import java.util.LinkedList;
+
 /**
  * @author lucalabarbera
  *
@@ -18,6 +20,7 @@ public class Utente {
 	private String password;
 	private String token;
 	private boolean valid;
+	LinkedList<Utente> listaUtenti;
 	/**
 	 * @param idUtente
 	 * @param nome
@@ -95,6 +98,13 @@ public class Utente {
 	}
 	public void setValid(boolean valid) {
 		this.valid = valid;
+	}
+	
+	public LinkedList<Utente> getListaUtenti() {
+		return listaUtenti;
+	}
+	public void setListaUtenti(LinkedList<Utente> listaUtenti) {
+		this.listaUtenti = listaUtenti;
 	}
 	@Override
 	public String toString() {
