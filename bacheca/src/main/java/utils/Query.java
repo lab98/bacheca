@@ -46,8 +46,8 @@ public class Query {
 	
 	/*** Stringhe query Avviso ***/
 	
-	private static String aggiungiAvvisoQuery = "INSERT INTO avviso (idutente, livello, datapub, datamod, datascad, testo) VALUES (?,?,?,?,?,?)";
-	private static String modificaAvvisoQuery = "UPDATE avviso SET livello=?, datamod=?, datascad=?, testo=? WHERE idavviso=?";
+	private static String aggiungiAvvisoQuery = "INSERT INTO avviso (idutente, livello, datapub, datamod, datascad, testo, titolo) VALUES (?,?,?,?,?,?,?)";
+	private static String modificaAvvisoQuery = "UPDATE avviso SET  livello=?, datamod=?, datascad=?, testo=?, titolo =? WHERE idavviso=?";
 	private static String eliminaAvvisoQuery = "DELETE FROM avviso WHERE idavviso=?";
 	private static String getListaAvvisiUtenteQuery = "SELECT * FROM avviso WHERE idutente=?";
 	private static String getAvvisiValidiQuery = "SELECT * FROM avviso WHERE datasca>=?";
@@ -55,7 +55,7 @@ public class Query {
 	
 	/*** Stringhe query Allegati ***/
 	
-	private static String aggiungiAllegatoQuery="INSERT INTO allegato (idallegato, idavviso, percorso) VALUES (?,?,?)";
+	private static String aggiungiAllegatoQuery="INSERT INTO allegato (idavviso, percorso) VALUES (?,?)";
 	private static String rimuoviAllegatoQuery="DELETE FROM allegato WHERE idallegato=?";
 	private static String getAllegatiAvvisoQuery ="SELECT * FROM allegato WHERE idavviso=?";
 	
@@ -267,16 +267,18 @@ public class Query {
 	}
 	
 	/*** Query tabella Avviso  ***/
-	public static boolean aggiungiAvviso(int idutente, String livello,String datascad,String testo) throws NamingException, SQLException {
+	public static boolean aggiungiAvviso(int idutente, String livello,String datascad,String testo, String titolo) throws NamingException, SQLException {
 		Connection cn = connessione.apriConnessione();
 		String query = aggiungiAvvisoQuery;
 		PreparedStatement stat = cn.prepareStatement(query);
+		System.out.print(idutente+livello+datascad+testo);
 		stat.setInt(1, idutente);
 		stat.setString(2, livello);
 		stat.setDate(3, Date.valueOf(java.time.LocalDate.now().toString()));
 		stat.setDate(4, Date.valueOf(java.time.LocalDate.now().toString()));
 		stat.setDate(5, Date.valueOf(datascad));
 		stat.setString(6, testo);
+		stat.setString(7, titolo);
 		stat.executeUpdate();
 		cn.close();
 		return true;
@@ -293,14 +295,15 @@ public class Query {
 		
 	}
 	
-	public static boolean modificaAvviso(int idavviso, String livello, String datascad, String testo) throws SQLException, NamingException {
+	public static boolean modificaAvviso(int idavviso, String livello, String datascad, String testo, String titolo) throws SQLException, NamingException {
 		Connection cn = connessione.apriConnessione();
 		statement = cn.prepareStatement(modificaAvvisoQuery);
 		statement.setString(1, livello);
 		statement.setDate(2, Date.valueOf(java.time.LocalDate.now().toString()));
 		statement.setDate(3, Date.valueOf(datascad));
 		statement.setString(5, testo);
-		statement.setInt(6, idavviso);
+		statement.setString(6, titolo);
+		statement.setInt(7, idavviso);
 		statement.executeUpdate();
 		cn.close();
 		
@@ -326,6 +329,7 @@ public class Query {
 			avviso.setIdUtente(idutente);
 			avviso.setLivello(res.getString("livello"));
 			avviso.setTesto(res.getString("testo"));
+			avviso.setTitolo(res.getString("titolo"));
 			
 			avvisi.add(avviso);
 		}
@@ -351,6 +355,7 @@ public class Query {
 			avviso.setIdUtente(res.getInt("idutente"));
 			avviso.setLivello(res.getString("livello"));
 			avviso.setTesto(res.getString("testo"));
+			avviso.setTitolo(res.getString("titolo"));
 			
 			avvisi.add(avviso);
 		}
@@ -360,11 +365,10 @@ public class Query {
 	}
 	
 	
-	public static boolean aggiungiAllegato(int idallegato, int idavviso, String percorso) throws NamingException, SQLException {
+	public static boolean aggiungiAllegato(int idavviso, String percorso) throws NamingException, SQLException {
 		Connection cn = connessione.apriConnessione();
 		statement = cn.prepareStatement(aggiungiAllegatoQuery);
-		statement.setInt(1, idallegato);
-		statement.setInt(2, idavviso);
+		statement.setInt(1, idavviso);
 		statement.setString(3, percorso);
 		statement.executeUpdate();
 		cn.close();

@@ -57,6 +57,7 @@ public class Login extends HttpServlet {
 			String password = request.getParameter("password");
 			HttpSession session = request.getSession();	
 			Utente utente = Query.accedi(email, password);
+			System.out.println(utente);
 			if(utente.getIdUtente()!=0) {
 				session.setAttribute("utente", utente);
 				if(utente.isTipo()) {

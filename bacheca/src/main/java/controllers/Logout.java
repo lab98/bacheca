@@ -38,9 +38,8 @@ public class Logout extends HttpServlet {
 		try {
 			Regolatore reg= new Regolatore();
 			String condition = reg.controlloAccesso(request, response);
-			if(!condition.equals("in")) {
+			if(!condition.equals("not")) {
 				HttpSession session = request.getSession();
-				session.invalidate();
 				response.sendRedirect(request.getContextPath()+"/Login");
 		}else {
 			response.sendRedirect(request.getContextPath()+"/Login");

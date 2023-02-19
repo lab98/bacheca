@@ -7,6 +7,7 @@ public class Avviso {
 	
 private int idAvviso;
 private int idUtente;
+public String titolo;
 private String livello;
 private String dataPub;
 private String dataMod;
@@ -138,6 +139,14 @@ public LinkedList<Allegato> getAllegati() {
 
 public void setAllegati(LinkedList<Allegato> allegati) {
 	this.allegati = allegati;
+}
+
+public String getTitolo() {
+	return titolo;
+}
+
+public void setTitolo(String titolo) {
+	this.titolo = titolo;
 }
 
 
