@@ -51,6 +51,7 @@ public class Query {
 	private static String eliminaAvvisoQuery = "DELETE FROM avviso WHERE idavviso=?";
 	private static String getListaAvvisiUtenteQuery = "SELECT * FROM avviso WHERE idutente=?";
 	private static String getAvvisiValidiQuery = "SELECT * FROM avviso WHERE datasca>=?";
+	private static String getAvvisoFromIdQuery ="SELECT * FROM avviso WHERE idavviso=?";
 	
 	
 	/*** Stringhe query Allegati ***/
@@ -284,6 +285,27 @@ public class Query {
 		return true;
 		
 	}
+	public static Avviso getAvvisoFromId(int idavviso) throws NamingException, SQLException {
+		Connection cn = connessione.apriConnessione();
+		statement = cn.prepareStatement(getAvvisoFromIdQuery);
+		statement.setInt(1, idavviso);
+		statement.executeQuery(); 
+		ResultSet res = statement.getResultSet();
+		Avviso avviso = new Avviso();
+		if(res.next()) {
+			
+			avviso.setIdAvviso(res.getInt("idavviso"));
+			avviso.setDataPub(res.getDate("datapub").toString());
+			avviso.setDataMod(res.getDate("datamod").toString());
+			avviso.setDataScad(res.getDate("datascad").toString());
+			avviso.setIdUtente(res.getInt("idutente"));
+			avviso.setLivello(res.getString("livello"));
+			avviso.setTesto(res.getString("testo"));
+			avviso.setTitolo(res.getString("titolo"));
+		}
+		return avviso;
+	
+	}
 	
 	public static boolean eliminaAvviso(int idavviso) throws NamingException, SQLException {
 		Connection cn = connessione.apriConnessione();
@@ -294,7 +316,7 @@ public class Query {
 		return true;
 		
 	}
-	
+
 	public static boolean modificaAvviso(int idavviso, String livello, String datascad, String testo, String titolo) throws SQLException, NamingException {
 		Connection cn = connessione.apriConnessione();
 		statement = cn.prepareStatement(modificaAvvisoQuery);
