@@ -16,6 +16,9 @@
             <a class="nav-link text-white" href="GestioneUtenti">Utenti</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link text-white" href="ResetPassword">Password</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-white" href="Logout">Logout</a>
           </li>
         </ul>

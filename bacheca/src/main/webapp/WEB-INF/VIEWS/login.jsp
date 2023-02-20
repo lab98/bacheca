@@ -30,15 +30,6 @@
                 <button type="submit" class="btn btn-primary btn-block">Login</button>
               </form>
             </div>
-            <div class="card-footer">
-              <p class="text-muted text-center mb-0">Password Dimenticata?</p>
-              <form class="mt-3">
-                <div class="form-group">
-                  <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
-              </form>
-            </div>
           </div>
         </div>
       </div>

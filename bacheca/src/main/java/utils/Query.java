@@ -39,7 +39,7 @@ public class Query {
 	private static String modificaUtenteQuery ="UPDATE utente SET nome =?, cognome =?, email =?, ruolo =? WHERE idutente =?";
 	private static String eliminaUtenteQuery ="DELETE FROM utente WHERE idutente=?";
 	private static String listaUtentiQuery ="SELECT * FROM utente";
-	private static String setPasswordUtenteQuery ="UPDATE utente SET password=? WHERE email=?";
+	private static String setPasswordUtenteQuery ="UPDATE utente SET password=? WHERE idutente=?";
 	private static String setTokenQuery="UPDATE utente SET token =?, valid=? WHERE email=?";
 	private static String getUtenteFromIdQuery="SELECT * FROM utente WHERE idutente = ?";
 	private static String getUtentiFromTipoQuery="SELECT * FROM utente WHERE tipo=?";
@@ -137,12 +137,12 @@ public class Query {
 		return utente;
 	}
 	
-	public static boolean setPasswordUtente(String email, String password) throws NamingException, SQLException, NoSuchAlgorithmException {
+	public static boolean setPasswordUtente(int id, String password) throws NamingException, SQLException, NoSuchAlgorithmException {
 		
 		Connection cn = connessione.apriConnessione();
 		statement = cn.prepareStatement(setPasswordUtenteQuery);
 		statement.setString(1, hashPassword(password));
-		statement.setString(2, email);
+		statement.setInt(2, id);
 		statement.executeUpdate();
 		cn.close();
 		return true;

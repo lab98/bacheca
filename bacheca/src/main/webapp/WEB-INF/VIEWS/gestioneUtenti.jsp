@@ -50,6 +50,7 @@
       <h5 class="card-title"><% out.print(utenti.get(i).getCognome()+ " "+utenti.get(i).getNome()); %></h5>
       <p class="card-text"><% out.print(utenti.get(i).getEmail()); %></p>
       <a href="ModificaUser?idUtente=<% out.print(utenti.get(i).getIdUtente());%>" id="ModificaUser" class="btn btn-secondary mr-2">Modifica</a>
+      <a href="ReimpostaPasswordUser?idUtente=<% out.print(utenti.get(i).getIdUtente());%>" id="ReimpostaPasswordUser" class="btn btn-warning mr-2">Password</a>
       <button type="submit"  class="btn btn-danger" onclick="elimina(<% out.print(utenti.get(i).getIdUtente()); %>)">Elimina</button>
     </div>
   </div>

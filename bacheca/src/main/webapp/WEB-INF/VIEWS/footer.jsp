@@ -2,17 +2,20 @@
     pageEncoding="UTF-8"%>
 
 <section>
-<footer class="footer fixed-bottom bg-danger">
-  <div class="container-fluid">
+<footer class="footer">
+  <div class="container">
     <div class="row">
-      <div class="col-12 col-md-6 text-start">
-        <p class="text-white">&copy; Bacheca Avvisi</p>
-        <p class="text-white"> Comando Provinciale Vigili Del Fuoco Palermo</p>
+      <div class="col-md-6 col-sm-12">
+        <h4>Comando Provinciale Vigili Del Fuoco Palermo</h4>
       </div>
-      <div class="col-12 col-md-6 text-end">
-        <p class="text-white">Designed by</p>
-        <p class="text-white">I.I. Luca La Barbera</p>
-        <p class="text-white">I.I. Ilenia Mannino</p>
+      <div class="col-md-3 col-sm-6">
+      <br>
+        <h4>Riferimenti :</h4>
+        <ul class="list-unstyled">
+          <li ><i class="fa fa-map-marker"><a href="https://goo.gl/maps/v7HkqjfJurLTSFEn6"></i> Via Alessandro Scarlatti, 16, 90134 Palermo PA</li></a>
+          <li><i class="fa fa-phone"></i> 0916059111</li>
+          <li><i class="fa fa-envelope"></i> comando.palermo@vigilfuoco.it</li>
+        </ul>
       </div>
     </div>
   </div>
