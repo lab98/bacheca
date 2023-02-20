@@ -6,10 +6,13 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-md-6 text-start">
-        <p class="text-white">&copy; 2023 My Website</p>
+        <p class="text-white">&copy; Bacheca Avvisi</p>
+        <p class="text-white"> Comando Provinciale Vigili Del Fuoco Palermo</p>
       </div>
       <div class="col-12 col-md-6 text-end">
-        <p class="text-white">Designed by Me</p>
+        <p class="text-white">Designed by</p>
+        <p class="text-white">I.I. Luca La Barbera</p>
+        <p class="text-white">I.I. Ilenia Mannino</p>
       </div>
     </div>
   </div>

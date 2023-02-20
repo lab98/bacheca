@@ -64,4 +64,37 @@
 .btn-link {
   color: #007bff;
 }
+.post-section {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.post-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.post-display {
+  height: 200px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+body {
+	margin: 0;
+}
+
+.card-container {
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.card {
+	margin: 10px;
+	padding: 20px;
+	background-color: #f9f9f9;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
   

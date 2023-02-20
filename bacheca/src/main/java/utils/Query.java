@@ -50,7 +50,7 @@ public class Query {
 	private static String modificaAvvisoQuery = "UPDATE avviso SET  livello=?, datamod=?, datascad=?, testo =?, titolo =? WHERE idavviso=?";
 	private static String eliminaAvvisoQuery = "DELETE FROM avviso WHERE idavviso=?";
 	private static String getListaAvvisiUtenteQuery = "SELECT * FROM avviso WHERE idutente=?";
-	private static String getAvvisiValidiQuery = "SELECT * FROM avviso WHERE datasca>=?";
+	private static String getAvvisiValidiQuery = "SELECT * FROM avviso WHERE datascad>=?";
 	private static String getAvvisoFromIdQuery ="SELECT * FROM avviso WHERE idavviso=?";
 	
 	
@@ -362,7 +362,7 @@ public class Query {
 	
 	public static LinkedList<Avviso> getAvvisiValidi() throws SQLException, NamingException{
 		LinkedList<Avviso> avvisi = new LinkedList<Avviso>();
-		
+		System.out.println("Query");
 		Connection cn = connessione.apriConnessione();
 		statement = cn.prepareStatement(getAvvisiValidiQuery);
 		statement.setDate(1, Date.valueOf(java.time.LocalDate.now().toString()));
