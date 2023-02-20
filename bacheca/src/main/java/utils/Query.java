@@ -47,7 +47,7 @@ public class Query {
 	/*** Stringhe query Avviso ***/
 	
 	private static String aggiungiAvvisoQuery = "INSERT INTO avviso (idutente, livello, datapub, datamod, datascad, testo, titolo) VALUES (?,?,?,?,?,?,?)";
-	private static String modificaAvvisoQuery = "UPDATE avviso SET  livello=?, datamod=?, datascad=?, testo=?, titolo =? WHERE idavviso=?";
+	private static String modificaAvvisoQuery = "UPDATE avviso SET  livello=?, datamod=?, datascad=?, testo =?, titolo =? WHERE idavviso=?";
 	private static String eliminaAvvisoQuery = "DELETE FROM avviso WHERE idavviso=?";
 	private static String getListaAvvisiUtenteQuery = "SELECT * FROM avviso WHERE idutente=?";
 	private static String getAvvisiValidiQuery = "SELECT * FROM avviso WHERE datasca>=?";
@@ -316,16 +316,16 @@ public class Query {
 		return true;
 		
 	}
-
+	
 	public static boolean modificaAvviso(int idavviso, String livello, String datascad, String testo, String titolo) throws SQLException, NamingException {
 		Connection cn = connessione.apriConnessione();
 		statement = cn.prepareStatement(modificaAvvisoQuery);
 		statement.setString(1, livello);
 		statement.setDate(2, Date.valueOf(java.time.LocalDate.now().toString()));
 		statement.setDate(3, Date.valueOf(datascad));
-		statement.setString(5, testo);
-		statement.setString(6, titolo);
-		statement.setInt(7, idavviso);
+		statement.setString(4, testo);
+		statement.setString(5, titolo);
+		statement.setInt(6, idavviso);
 		statement.executeUpdate();
 		cn.close();
 		

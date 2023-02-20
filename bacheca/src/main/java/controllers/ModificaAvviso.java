@@ -42,7 +42,7 @@ public class ModificaAvviso extends HttpServlet {
 			session.setAttribute("avvisomod", avviso);
 			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
 			dispatcher.include(request, response);
-			dispatcher = request.getRequestDispatcher(basePath+"navbarAdmin.jsp");
+			dispatcher = request.getRequestDispatcher(basePath+"navbarUser.jsp");
 			dispatcher.include(request, response);
 			dispatcher = request.getRequestDispatcher(basePath+"modificaAvviso.jsp");
 			dispatcher.include(request, response);
@@ -61,17 +61,19 @@ public class ModificaAvviso extends HttpServlet {
 		try {
 			HttpSession session = request.getSession();
 			System.out.println("ModificaAvviso");
-			int id = Integer.parseInt(request.getParameter("idAvviso"));
+			Avviso avviso = (Avviso) session.getAttribute("avvisomod");
 			String titolo = request.getParameter("titolo");
 			String testo = request.getParameter("testo");
 			String datascad = request.getParameter("datascad");
 			String livello = request.getParameter("livello");
+			System.out.println(titolo);
 			
-			boolean update = Query.modificaAvviso(id, livello, datascad, testo, titolo);
+			boolean update = Query.modificaAvviso(avviso.getIdAvviso(), livello, datascad, testo, titolo);
+			System.out.println(titolo +" "+ update);
 			if(update) {
-				response.sendRedirect(request.getContextPath()+"ModificaAvviso?idUtente="+id);
+				response.sendRedirect(request.getContextPath()+"/ModificaAvviso?idAvviso="+avviso.getIdAvviso());
 			}else {
-				response.sendRedirect(request.getContextPath()+"ErroreGenerico");
+				response.sendRedirect(request.getContextPath()+"/ErroreGenerico");
 			}
 		}catch(Exception e) {
 			

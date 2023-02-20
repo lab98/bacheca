@@ -9,67 +9,36 @@
 $(document).ready(function() {
 	
 });
-function editValue(id) {
-	  var value = document.getElementById(id);
-	  var newValue = prompt("Enter new value:");
-	  if (newValue !== null) {
-	    value.textContent = newValue;
-	  }
-	}
-function saveChanges(id) {
-	  var nome = document.getElementById("titolo").textContent;
-	  var cognome = document.getElementById("testo").textContent;
-	  var email = document.getElementById("datascad").textContent;
-	  var ruolo = document.getElementById("livello").textContent;
-	  
-	  $.ajax({
-          method: "POST",
-          url: "ModificaAvviso",
-          data:{ idAvviso: id, titolo: titolo, testo: testo, datascad: datascad, livello: livello },
-          async: false,
-          success : function (data,stato) {
-          	location.reload();
-          },
-          error : function (richiesta,stato,errori) {
-          	location.reload();
-          }
-      });
-	  
-	  alert("Modifiche Salvate con Successo !");
-	}
+
 </script>
 <section>
-<div class="card">
-  <div class="card-header">
-    <h2 class="card-title">User Recap</h2>
+  <div class="container">
+    <h1 class="my-4">Modifica Avviso</h1>
+    <form action="ModificaAvviso" method="post">
+      <div class="mb-3">
+        <label for="postTitle" class="form-label">Titolo</label>
+        <input type="text" class="form-control" id="titolo" name="titolo" value="<% out.print(avviso.getTitolo());%>">
+      </div>
+      <div class="mb-3">
+        <label for="postContent" class="form-label">Testo</label>
+        <textarea class="form-control" id="testo" name="testo" rows="8" placeholder="<% out.print(avviso.getTesto());%>"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="postCategory" class="form-label">Livello Importanza</label>
+        <select class="form-select" id="livello" name="livello">
+          <option selected disabled>Scegliere livello</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="postDate" class="form-label">Data Scadenza</label>
+        <input type="date" class="form-control" id="datascad" name="datascad">
+      </div>
+      <button type="submit" onclick="saveChanges(<% out.print(avviso.getIdAvviso());%>)" class="btn btn-primary">Salva Modifiche</button>
+    </form>
   </div>
-  <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <span>Titolo:</span>
-        <span id="titolo"><% out.print(avviso.getTitolo()); %></span>
-        <button class="btn btn-link" onclick="editValue('titolo')">Edit</button>
-      </li>
-      <li class="list-group-item">
-        <span>Testo:</span>
-        <span id="testo"><% out.print(avviso.getTesto()); %></span>
-        <button class="btn btn-link" onclick="editValue('testo')">Edit</button>
-      </li>
-      <li class="list-group-item">
-        <span>Data Scadenza:</span>
-        <span id="datascad"><% out.print(avviso.getDataScad());%></span>
-        <button class="btn btn-link" onclick="editValue('datascad')">Edit</button>
-      </li>
-      <li class="list-group-item">
-        <span>Livello Importanza:</span>
-        <span id="livello"><% out.print(avviso.getLivello());%></span>
-        <button class="btn btn-link" onclick="editValue('livello')">Edit</button>
-      </li>
-    </ul>
-  </div>
-  <div class="card-footer text-right">
-    <button class="btn btn-primary" onclick="saveChanges(<% out.print(avviso.getIdAvviso()); %>)">Salva Modifiche</button>
-  </div>
-</div>
-
 </section>
