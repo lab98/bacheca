@@ -4,7 +4,7 @@
 <section>
     <div class="container">
     <h1 class="my-4">Pubblica Avviso</h1>
-    <form action="UserPage" method="post" enctype="multipart/form-data">
+    <form action="Prova" method="post" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="postTitle" class="form-label">Titolo</label>
         <input type="text" class="form-control" id="titolo" name="titolo" placeholder="Enter post title">
@@ -32,8 +32,8 @@
 		  <label for="formFileMultiple" class="form-label">Scegli file da inserire</label>
 		  <input class="form-control" 
 		  type="file" 
-		  id="formFileMultiple" 
-		  multiple
+		  id="file"
+		  name="file" 
 		  accept="video/*, image/*">
 		</div>
       <button type="submit"  class="btn btn-primary">Pubblica</button>

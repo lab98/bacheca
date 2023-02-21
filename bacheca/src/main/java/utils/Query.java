@@ -52,6 +52,7 @@ public class Query {
 	private static String getListaAvvisiUtenteQuery = "SELECT * FROM avviso WHERE idutente=?";
 	private static String getAvvisiValidiQuery = "SELECT * FROM avviso WHERE datascad>=?";
 	private static String getAvvisoFromIdQuery ="SELECT * FROM avviso WHERE idavviso=?";
+	private static String getLastAvvisoIndex ="SELECT * FROM avviso WHERE idutente =? ORDER BY idavviso DESC LIMIT 1";
 	
 	
 	/*** Stringhe query Allegati ***/
@@ -391,7 +392,7 @@ public class Query {
 		Connection cn = connessione.apriConnessione();
 		statement = cn.prepareStatement(aggiungiAllegatoQuery);
 		statement.setInt(1, idavviso);
-		statement.setString(3, percorso);
+		statement.setString(2, percorso);
 		statement.executeUpdate();
 		cn.close();
 		return true;
@@ -426,5 +427,22 @@ public class Query {
 		}
 		cn.close();
 		return allegati;
+	}
+
+	public static int getLastAvvisoIndex(int idUtente) throws NamingException, SQLException {
+		System.out.println("Avviso Q");
+		Connection cn = connessione.apriConnessione();
+		statement = cn.prepareStatement(getLastAvvisoIndex);
+		statement.setInt(1, idUtente);
+		statement.executeQuery();
+		System.out.println("Avviso Q");
+		ResultSet res = statement.getResultSet();
+		int idavviso =0;
+		if(res.next()) {
+			idavviso = res.getInt("idavviso");
+			System.out.println("Avviso Q "+idavviso);
+		}
+		
+		return idavviso;
 	}
 }
