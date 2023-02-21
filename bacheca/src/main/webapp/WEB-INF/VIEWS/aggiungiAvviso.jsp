@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="models.Messaggio" %>
+<% Messaggio m= (Messaggio) session.getAttribute("messaggio");%>
 <!DOCTYPE html>
 <section>
     <div class="container">
     <h1 class="my-4">Pubblica Avviso</h1>
-    <form action="Prova" method="post" enctype="multipart/form-data">
+    <form action="UserPage" method="post" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="postTitle" class="form-label">Titolo</label>
         <input type="text" class="form-control" id="titolo" name="titolo" placeholder="Enter post title">
@@ -33,10 +35,46 @@
 		  <input class="form-control" 
 		  type="file" 
 		  id="file"
-		  name="file" 
+		  name="file"
+		  multiple 
 		  accept="video/*, image/*">
 		</div>
       <button type="submit"  class="btn btn-primary">Pubblica</button>
     </form>
   </div>
+  <div class="row">
+		<div class="col-2">
+		</div>
+		<div class="col-8">
+		<% if(m != null) { if(m.getJsp()=="aggiungiAvviso"&& m.getCodice()==1){%>
+		    <div id="errore" class="alert alert-success">
+    			<strong>Successo!</strong> ${messaggio.testo}
+    		</div>
+    	
+		<%	session.removeAttribute("messaggio");
+		}} %>
+			
+  			
+		</div>
+		<div class="col-2">
+		</div>
+</div>
+<div class="row">
+		<div class="col-2">
+		</div>
+		<div class="col-8">
+		<% if(m != null) { if(m.getJsp()=="aggiungiAvviso"&& m.getCodice()==0){%>
+		    <div id="errore" class="alert alert-success">
+    			<strong>Errore!</strong> ${messaggio.testo}
+    		</div>
+    	
+		<%	session.removeAttribute("messaggio");
+		}} %>
+			
+  			
+		</div>
+		<div class="col-2">
+		</div>
+</div>
+
 </section>

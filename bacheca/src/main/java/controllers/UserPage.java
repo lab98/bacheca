@@ -5,11 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.LinkedList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,13 +17,14 @@ import javax.servlet.http.Part;
 
 import models.Messaggio;
 import models.Utente;
-import utils.Incremental;
 import utils.Query;
 
 /**
  * Servlet implementation class UserPage
  */
 @WebServlet("/UserPage")
+@MultipartConfig
+
 public class UserPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 private String basePath = "WEB-INF/VIEWS/";         
@@ -62,14 +61,8 @@ public class UserPage extends HttpServlet {
 			String testo = request.getParameter("testo");	
 			String livello = request.getParameter("livello"); 
 			String datascad = request.getParameter("datascad");
-			//Utente utente = (Utente) session.getAttribute("utente");
-			System.out.println(1+livello+datascad+titolo+testo);
-			System.out.println(datascad);
-			System.out.println("ciao0");
 			
-			/*** Memorizzo I file e li rinomino ***/
 			
-			/**Collection<Part> fileParts = (Collection<Part>) request.getPart("file"); 
 			Part filePart = request.getPart("file");
 			System.out.println("ciao1 "+filePart.toString());
 			String contextPath = getServletContext().getRealPath("/");
@@ -80,39 +73,24 @@ public class UserPage extends HttpServlet {
 			    uploadsDir.mkdir();
 			    System.out.println("ciao4" + contextPath);
 			}
-			 System.out.println("ciao4"+ contextPath);
-			/**LinkedList<String> percorsi = new LinkedList<String>();
-			for (Part filePart : fileParts) {
-			    String originalFileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-			    String fileName = originalFileName+Query.hashPassword(originalFileName+java.time.LocalDateTime.now().getNano());
-			    String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-			    InputStream fileContent = filePart.getInputStream();
-			    Files.copy(fileContent, new File(uploadsDir, fileName + fileExtension).toPath());
-			    percorsi.add(contextPath+"uploads/"+fileName);
-			    System.out.println("ciao5");
-			}
+			
 			 String originalFileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
 			    String fileName = originalFileName+Query.hashPassword(originalFileName+java.time.LocalDateTime.now().getNano());
 			    String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
 			    InputStream fileContent = filePart.getInputStream();
 			    Files.copy(fileContent, new File(uploadsDir, fileName + fileExtension).toPath());
-			 String percorso = contextPath+"/uploads/"+fileName;
-			
-			/*** Query al db per il post * **/
+			 String percorso = uploadsDir+fileName;
+
 			 System.out.println("ciao6");
-			//Incremental i = new Incremental();
-			//int idavviso=Incremental.getInstanceCount();
 			 Utente utente = (Utente) session.getAttribute("utente");
 			 System.out.println(utente);
 
 			boolean published = Query.aggiungiAvviso(utente.getIdUtente(), livello, datascad, testo, titolo);
 			 System.out.println("ciao7");
-			boolean isAllegato=true;
-			/**for(String percorso : percorsi) {
-				isAllegato = Query.aggiungiAllegato(idavviso, percorso);
-				 System.out.println("ciao8");
-			}**/
-			//isAllegato=Query.aggiungiAllegato(idavviso, percorso);
+			boolean isAllegato=false;
+
+			int idavviso = Query.getLastAvvisoIndex(utente.getIdUtente());
+			isAllegato=Query.aggiungiAllegato(idavviso, percorso);
 			if(published&&isAllegato) {
 				String message = "Avviso Pubblicato correttamente ";
 				Messaggio m = new Messaggio(1,"aggiungiAvviso",message);
