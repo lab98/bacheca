@@ -46,7 +46,10 @@ public class SchermataAvvisi extends HttpServlet {
 			dispatcher.include(request, response);
 			dispatcher = request.getRequestDispatcher(basePath+"navbar.jsp");
 			dispatcher.include(request, response);
-			dispatcher = request.getRequestDispatcher(basePath+"schermataAvvisi.jsp");
+			
+			//dispatcher = request.getRequestDispatcher(basePath+"schermataAvvisi.jsp");
+			dispatcher = request.getRequestDispatcher(basePath+"SchermataAvvisi_NEW.jsp");
+			
 			dispatcher.include(request, response);
 			dispatcher = request.getRequestDispatcher(basePath+"footer.jsp");
 			dispatcher.include(request,response);
