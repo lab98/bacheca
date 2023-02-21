@@ -4,7 +4,7 @@
 <section>
     <div class="container">
     <h1 class="my-4">Pubblica Avviso</h1>
-    <form action="UserPage" method="post">
+    <form action="UserPage" method="post" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="postTitle" class="form-label">Titolo</label>
         <input type="text" class="form-control" id="titolo" name="titolo" placeholder="Enter post title">
@@ -28,6 +28,14 @@
         <label for="postDate" class="form-label">Data Scadenza</label>
         <input type="date" class="form-control" id="datascad" name="datascad">
       </div>
+		<div class="mb-3">
+		  <label for="formFileMultiple" class="form-label">Scegli file da inserire</label>
+		  <input class="form-control" 
+		  type="file" 
+		  id="formFileMultiple" 
+		  multiple
+		  accept="video/*, image/*">
+		</div>
       <button type="submit"  class="btn btn-primary">Pubblica</button>
     </form>
   </div>
