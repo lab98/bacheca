@@ -64,22 +64,29 @@ public class UserPage extends HttpServlet {
 			
 			
 			Part filePart = request.getPart("file");
-			System.out.println("ciao1 "+filePart.toString());
-			String contextPath = getServletContext().getRealPath("/");
-			System.out.println("ciao2");
-			File uploadsDir = new File(contextPath, "uploads");
-			System.out.println("ciao3");
-			if (!uploadsDir.exists()) {
-			    uploadsDir.mkdir();
-			    System.out.println("ciao4" + contextPath);
+			 String originalFileName=null; // MSIE fix.
+			 String fileName=null;
+			 String fileExtension=null;
+			 InputStream fileContent=null;
+			 String percorso=null;
+			 String contextPath = getServletContext().getRealPath("/");
+			 File uploadsDir = new File(contextPath, "uploads");
+			 System.out.println("ciao3");
+			 if (!uploadsDir.exists()) {
+				 uploadsDir.mkdir();
+				 System.out.println("ciao4" + contextPath);
+				}
+				
+			if(filePart!=null) {
+				 originalFileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
+				 fileName = originalFileName+Query.hashPassword(originalFileName+java.time.LocalDateTime.now().getNano());
+				 fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+				 fileContent = filePart.getInputStream();
+				 Files.copy(fileContent, new File(uploadsDir, fileName + fileExtension).toPath());
+				 percorso = uploadsDir+fileName;
 			}
-			
-			 String originalFileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-			    String fileName = originalFileName+Query.hashPassword(originalFileName+java.time.LocalDateTime.now().getNano());
-			    String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-			    InputStream fileContent = filePart.getInputStream();
-			    Files.copy(fileContent, new File(uploadsDir, fileName + fileExtension).toPath());
-			 String percorso = uploadsDir+fileName;
+
+
 
 			 System.out.println("ciao6");
 			 Utente utente = (Utente) session.getAttribute("utente");
@@ -87,10 +94,12 @@ public class UserPage extends HttpServlet {
 
 			boolean published = Query.aggiungiAvviso(utente.getIdUtente(), livello, datascad, testo, titolo);
 			 System.out.println("ciao7");
-			boolean isAllegato=false;
+			boolean isAllegato=true;
 
 			int idavviso = Query.getLastAvvisoIndex(utente.getIdUtente());
-			isAllegato=Query.aggiungiAllegato(idavviso, percorso);
+			if(percorso!=null) {
+				isAllegato=Query.aggiungiAllegato(idavviso, percorso);
+			}
 			if(published&&isAllegato) {
 				String message = "Avviso Pubblicato correttamente ";
 				Messaggio m = new Messaggio(1,"aggiungiAvviso",message);
