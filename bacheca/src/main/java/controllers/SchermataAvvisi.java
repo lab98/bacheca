@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.Allegato;
 import models.Avviso;
 import utils.Query;
 import utils.Regolatore;
@@ -40,6 +41,12 @@ public class SchermataAvvisi extends HttpServlet {
 			System.out.println("SchermataAvvisi");
 			LinkedList<Avviso> listaAvvisi= Query.getAvvisiValidi();
 			
+			for(Avviso a : listaAvvisi) {
+				int id = a.getIdAvviso();
+				LinkedList<Allegato> allegati =Query.getAllegatiAvviso(id);
+				a.setAllegati(allegati);
+			}
+			
 			Collections.sort(listaAvvisi, new Regolatore());
 			session.setAttribute("avvisiValidi", listaAvvisi);
 			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
@@ -48,8 +55,8 @@ public class SchermataAvvisi extends HttpServlet {
 			dispatcher.include(request, response);
 			
 			//dispatcher = request.getRequestDispatcher(basePath+"schermataAvvisi.jsp");
-			dispatcher = request.getRequestDispatcher(basePath+"SchermataAvvisi_NEW.jsp");
-			
+			//dispatcher = request.getRequestDispatcher(basePath+"SchermataAvvisi_NEW.jsp");
+			dispatcher = request.getRequestDispatcher(basePath+"prova.jsp");
 			dispatcher.include(request, response);
 			/*
 			 * dispatcher = request.getRequestDispatcher(basePath+"footer.jsp");

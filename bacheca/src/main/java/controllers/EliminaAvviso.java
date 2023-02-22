@@ -43,9 +43,9 @@ public class EliminaAvviso extends HttpServlet {
 			System.out.println(id);
 			boolean deleted = Query.eliminaAvviso(id);
 			if(deleted) {
-				response.sendRedirect(request.getContextPath()+"GestioneAvvisi");
+				response.sendRedirect(request.getContextPath()+"/GestioneAvvisi");
 			}else {
-				response.sendRedirect(request.getContextPath()+"ErroreGenerico");
+				response.sendRedirect(request.getContextPath()+"/ErroreGenerico");
 			}
 		}catch(Exception e) {
 			response.sendRedirect(request.getContextPath()+"/ErroreGenerico");

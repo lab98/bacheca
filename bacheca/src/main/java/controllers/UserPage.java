@@ -66,26 +66,25 @@ public class UserPage extends HttpServlet {
 			Part filePart = null;
 			 String originalFileName=null; // MSIE fix.
 			 String fileName=null;
-			 String fileExtension=null;
+			 //String fileExtension=null;
 			 InputStream fileContent=null;
 			 String percorso=null;
-			 String contextPath = getServletContext().getRealPath("/");
+			 String contextPath = request.getServletContext().getRealPath("");
 			 File uploadsDir = new File(contextPath, "uploads");
-			 System.out.println("ciao3");
+			 System.out.println(contextPath);
 			 if (!uploadsDir.exists()) {
 				 uploadsDir.mkdir();
-				 System.out.println("ciao4" + contextPath);
+				 System.out.println("ciao4" + uploadsDir);
 				}
-			if(request.getPart("file").equals(null)) {
+			if(!(request.getPart("file").getSize()==0)) {
 				filePart =request.getPart("file");
 			}
-			if(filePart!=null) {
+			if(!(filePart==null)) {
 				 originalFileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-				 fileName = originalFileName+Query.hashPassword(originalFileName+java.time.LocalDateTime.now().getNano());
-				 fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+				 fileName = Query.hashPassword(java.time.Instant.now().toString()+originalFileName)+originalFileName;
 				 fileContent = filePart.getInputStream();
-				 Files.copy(fileContent, new File(uploadsDir, fileName + fileExtension).toPath());
-				 percorso = uploadsDir+fileName;
+				 Files.copy(fileContent, new File(uploadsDir, fileName).toPath());
+				 percorso = uploadsDir+"/"+fileName;
 			}
 
 
