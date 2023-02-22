@@ -4,19 +4,29 @@
 }
 html, body {
   height: 100%;
+ 
+}
+
+section{
+	padding-bottom: 20px;
+	
 }
 
 .footer {
   background-color: #333;
   color: #fff;
-  height: auto;
-  min-height: 100%;
+  height: 100%;
   padding-top: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  
+  
 }
 
 .footer .container {
   padding-top: 30px;
-  padding-bottom: 100%;
+  padding-bottom: 30px;
 }
 
 .footer ul {
@@ -76,71 +86,7 @@ html, body {
   }
 }
 
-#carosello_avvisi{
- 	
-/* margin: -100px 0 0 -150px;
- top: 50%;
-  left: 50%;
-    height: 80%;
-         
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex; */
-     
-    max-width: 100%;
- 	height: 700px; 
-  /* height:100vh; */
-  padding-bottom: 50px;
-  
-}
 
-.carousel-inner{
-	  width: 100%;
-/*   height: 100%;
-  position: relative;
-  display: flex; */
-}
-
-
-/* .card {
-    margin-bottom: 20px;
-  }
-  
-.card {
-  background-color: #f8f9fa;
-  border-radius: 0.5rem;
-} */
-
-.card-title_text-secondary h1 {
-  margin-bottom: 0;
-  text-align: center;
-  font-size: 5vw
-}
-
-.card-content h3 {
-  text-align: center;
-  
-/*   
-	padding-top: 2px;
-	padding-right: 30px;
-  padding-left: 80px; 
-    padding-bottom: 50px;
-    */
-
-  
-  font-size: 4vw;
-  overflow-wrap:  break-word;
-}
-
-.card-content p {
-	display: inline;
-	text-align: center;
-	  padding-top: 50px;
-  padding-right: 30px;
-  padding-bottom: 50px;
-  padding-left: 80px;
-}
 
 .list-group-item {
   display: flex;
@@ -189,4 +135,4 @@ body {
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-  
+/* ------------------------------------------------------ */  

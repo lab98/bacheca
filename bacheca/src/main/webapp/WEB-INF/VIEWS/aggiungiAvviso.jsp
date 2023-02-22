@@ -9,16 +9,15 @@
     <form action="UserPage" method="post" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="postTitle" class="form-label">Titolo</label>
-        <input type="text" class="form-control" id="titolo" name="titolo" placeholder="Enter post title">
+        <input type="text" class="form-control" id="titolo" name="titolo" placeholder="Inserisci titolo" maxlength="80" required>
       </div>
       <div class="mb-3">
         <label for="postContent" class="form-label">Testo</label>
-        <textarea class="form-control" id="testo" name="testo" rows="8" placeholder="Enter post content"></textarea>
+        <textarea class="form-control" id="testo" name="testo" rows="8" placeholder="Enter post content" maxlength="500" required></textarea>
       </div>
       <div class="mb-3">
         <label for="postCategory" class="form-label">Livello Importanza</label>
         <select class="form-select" id="livello" name="livello">
-          <option selected disabled>Scegliere livello</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

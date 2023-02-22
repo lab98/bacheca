@@ -17,11 +17,11 @@ $(document).ready(function() {
     <form action="ModificaAvviso" method="post">
       <div class="mb-3">
         <label for="postTitle" class="form-label">Titolo</label>
-        <input type="text" class="form-control" id="titolo" name="titolo" value="<% out.print(avviso.getTitolo());%>" required>
+        <input type="text" class="form-control" id="titolo" name="titolo" value="<% out.print(avviso.getTitolo());%>" maxlength="80" required>
       </div>
       <div class="mb-3">
         <label for="postContent" class="form-label">Testo</label>
-        <textarea class="form-control" id="testo" name="testo" rows="8" placeholder="<% out.print(avviso.getTesto());%>" required></textarea>
+        <textarea class="form-control"  id="testo" name="testo" rows="8" placeholder="<% out.print(avviso.getTesto());%>" maxlength="500" required></textarea>
       </div>
       <div class="mb-3">
         <label for="postCategory" class="form-label">Livello Importanza</label>

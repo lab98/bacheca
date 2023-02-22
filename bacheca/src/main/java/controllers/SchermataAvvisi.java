@@ -51,8 +51,10 @@ public class SchermataAvvisi extends HttpServlet {
 			dispatcher = request.getRequestDispatcher(basePath+"SchermataAvvisi_NEW.jsp");
 			
 			dispatcher.include(request, response);
-			dispatcher = request.getRequestDispatcher(basePath+"footer.jsp");
-			dispatcher.include(request,response);
+			/*
+			 * dispatcher = request.getRequestDispatcher(basePath+"footer.jsp");
+			 * dispatcher.include(request,response);
+			 */
 		}catch(Exception e) {
 			response.sendRedirect(request.getContextPath()+"/ErroreGenerico");
 		}
