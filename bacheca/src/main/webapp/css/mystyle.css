@@ -1,32 +1,48 @@
 /* Navbar */
+
+
 .navbar {
   padding: 1rem;
 }
 html, body {
-  height: 100%;
  
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+ 	
+ 	 min-height: 100vh;
 }
 
-section{
+.messaggio_avviso{
+	padding:10px;
+	display : block;
+	
+}
+
+section {
 	padding-bottom: 20px;
+	height: auto;
+	
 	
 }
 
 .footer {
   background-color: #333;
   color: #fff;
-  height: 100%;
-  padding-top: 20px;
-  position: relative;
+  height: auto;
+ position: relative;
   bottom: 0;
   width: 100%;
+  
   
   
 }
 
 .footer .container {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
 }
 
 .footer ul {

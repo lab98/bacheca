@@ -29,6 +29,7 @@
     	};
     	
 </script>
+
 <div class="container">
   <div class="row">
     <div class="col-md-4">
@@ -36,13 +37,14 @@
  <div class="col-md-8">
   <form>
     <div class="form-group">
-      <label for="search-input">Search:</label>
+      <label for="search-input">Inserisci parola chiave da ricercare negli avvisi:</label>
       <input type="text" class="form-control" id="search-input">
     </div>
-    <button type="submit" class="btn btn-primary" id="search-button">Search</button>
+    <button type="submit" class="btn btn-primary" id="search-button">Cerca</button>
   </form>
 </div>
 </div>
+
 <div class="col-md-8">
       <!-- User card section -->
 <div class="col-md-10" id="card-section">
@@ -75,6 +77,7 @@
 		<div class="col-2">
 		</div>
 	</div>
+	
 <script type="text/javascript">
 function search() {
 	  // Get the input value and convert it to lowercase
