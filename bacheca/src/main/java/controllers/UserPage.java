@@ -63,7 +63,7 @@ public class UserPage extends HttpServlet {
 			String datascad = request.getParameter("datascad");
 			
 			
-			Part filePart = request.getPart("file");
+			Part filePart = null;
 			 String originalFileName=null; // MSIE fix.
 			 String fileName=null;
 			 String fileExtension=null;
@@ -76,7 +76,9 @@ public class UserPage extends HttpServlet {
 				 uploadsDir.mkdir();
 				 System.out.println("ciao4" + contextPath);
 				}
-				
+			if(request.getPart("file").equals(null)) {
+				filePart =request.getPart("file");
+			}
 			if(filePart!=null) {
 				 originalFileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
 				 fileName = originalFileName+Query.hashPassword(originalFileName+java.time.LocalDateTime.now().getNano());
