@@ -41,6 +41,9 @@ public class ReimpostaPasswordUser extends HttpServlet {
 		System.out.println(id);
 		Utente utente = Query.getUtenteFromId(id);
 		session.setAttribute("modificato", utente);
+
+		/*	
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
 		dispatcher.include(request, response);
 		dispatcher = request.getRequestDispatcher(basePath+"navbarAdmin.jsp");
@@ -49,6 +52,12 @@ public class ReimpostaPasswordUser extends HttpServlet {
 		dispatcher.include(request, response);
 		dispatcher = request.getRequestDispatcher(basePath+"footer.jsp");
 		dispatcher.include(request,response);
+		*/
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"resetPasswordUser.jsp");
+		dispatcher.include(request, response);		
+		
+	
 		}catch(Exception e) {
 			response.sendRedirect(request.getContextPath()+"/ErroreGenerico");
 		}

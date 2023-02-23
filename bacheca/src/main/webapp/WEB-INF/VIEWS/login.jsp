@@ -2,7 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ page import="models.Messaggio" %>
 <% Messaggio m= (Messaggio) session.getAttribute("messaggio");%>
-<section>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<%@ include file="meta.jsp" %>
+
+<title>Insert title here</title>
+
+<%@ include file="header.jsp" %>  
+<%@ include file="navbar.jsp" %>  
+
+</head>
+<body>
+
 <script type="text/javascript">
         $(document).ready(function() {
         	$("#email, #password").keyup(function(){
@@ -56,4 +70,9 @@
 				<div class="col-2">
 		</div>
 	</div>
-	</section>
+
+	<%@ include file="footer.jsp" %>  
+
+</body>
+</html>
+	

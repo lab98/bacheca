@@ -4,20 +4,34 @@
     <%@ page import="models.Messaggio" %>
     <% Utente utente = (Utente)session.getAttribute("utente"); %>
     <% Messaggio m= (Messaggio) session.getAttribute("messaggio");%>
-<section>
+  
+ <!DOCTYPE html>
+<html>
+<head>
+
+<%@ include file="meta.jsp" %>
+
+<title>Insert title here</title>
+
+<%@ include file="header.jsp" %>  
+<%@ include file="navbarUser.jsp" %>  
+
+</head>
+<body>   
+
 
     <div class="container">
       <h1>Modifica Password</h1>
       <form action="ResetPassword" method="post">
         <div class="form-group">
           <label for="password">Nuova Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Enter new password" required>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Inserisci la nuova password" required>
         </div>
         <div class="form-group">
           <label for="confirm-password">Conferma Password</label>
-          <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm new password" required>
+          <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Conferma la nuova password" required>
         </div>
-        <button type="submit" class="btn btn-primary" onclick="confirm()">Reimposta Password</button>
+        <button type="submit" class="btn btn-primary">Reimposta Password</button>
       </form>
     </div>
     
@@ -55,4 +69,8 @@
 		<div class="col-2">
 		</div>
 </div>
-</section>
+
+<%@ include file="footer.jsp" %>  
+
+</body>
+</html>

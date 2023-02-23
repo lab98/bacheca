@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<section>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-danger">
     <div class="container-fluid">
       <a class="navbar-brand text-white" href="UserPage">Bacheca COM-PA</a>
@@ -26,4 +26,3 @@
     </div>
   </nav>
 
-</section>

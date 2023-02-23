@@ -40,6 +40,7 @@ public class ResetPassword extends HttpServlet {
 		HttpSession session = request.getSession();
 		Utente utente = (Utente) session.getAttribute("utente");
 		if(utente.isTipo()) {
+		/*	
 			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
 			dispatcher.include(request, response);
 			dispatcher = request.getRequestDispatcher(basePath+"navbarAdmin.jsp");
@@ -48,7 +49,16 @@ public class ResetPassword extends HttpServlet {
 			dispatcher.include(request, response);
 			dispatcher = request.getRequestDispatcher(basePath+"footer.jsp");
 			dispatcher.include(request,response);
+			
+			*/
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"resetPassword.jsp");
+			dispatcher.include(request, response);
+			
+			
 		}else {
+			
+			/*
 			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
 			dispatcher.include(request, response);
 			dispatcher = request.getRequestDispatcher(basePath+"navbarUser.jsp");
@@ -57,6 +67,13 @@ public class ResetPassword extends HttpServlet {
 			dispatcher.include(request, response);
 			dispatcher = request.getRequestDispatcher(basePath+"footer.jsp");
 			dispatcher.include(request,response);
+			*/
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"resetPassword.jsp");
+			dispatcher.include(request, response);
+			
+			
+			
 		}
 		
 			}catch(Exception e) {

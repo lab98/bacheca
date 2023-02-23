@@ -2,8 +2,23 @@
     pageEncoding="UTF-8"%>
     <%@ page import="models.Messaggio" %>
 <% Messaggio m= (Messaggio) session.getAttribute("messaggio");%>
+
 <!DOCTYPE html>
-<section>
+<html>
+<head>
+<!-- <meta charset="UTF-8"> -->
+
+
+<title>Insert title here</title>
+
+<%@ include file="header.jsp" %>  
+<%@ include file="navbarUser.jsp" %>  
+
+</head>
+<body>
+<!-- <section> -->
+
+
     <div class="container">
     <h1 class="my-4">Pubblica Avviso</h1>
     <form action="UserPage" method="post" enctype="multipart/form-data">
@@ -67,4 +82,13 @@
   
   
 
-</section>
+<!-- </section> -->
+
+<%@ include file="footer.jsp" %>  
+
+</body>
+</html>
+
+
+
+

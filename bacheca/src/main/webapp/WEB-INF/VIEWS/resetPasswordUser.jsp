@@ -4,9 +4,22 @@
     <%@ page import="models.Messaggio" %>
     <% Utente utente = (Utente)session.getAttribute("modificato"); %>
     <% Messaggio m= (Messaggio) session.getAttribute("messaggio");%>
-<section>
+    
+ <!DOCTYPE html>
+<html>
+<head>
 
-    <div class="container">
+<%@ include file="meta.jsp" %>
+
+<title>Insert title here</title>
+
+<%@ include file="header.jsp" %>  
+<%@ include file="navbarUser.jsp" %>  
+
+</head>
+<body>
+
+    <div class="container"> 
       <h1>Modifica Password</h1>
       <form action="ReimpostaPasswordUser" method="post">
         <div class="form-group">
@@ -14,7 +27,7 @@
           <input type="password" class="form-control" id="password" name="password" placeholder="Enter new password" required>
         </div>
         <div class="form-group">
-          <label for="confirm-password">Conferma Password</label>
+          <label for="confirm-password">Conferma Password hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</label>
           <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm new password" required>
         </div>
         <button type="submit" class="btn btn-primary" onclick="confirm()">Reimposta Password</button>
@@ -55,4 +68,8 @@
 		<div class="col-2">
 		</div>
 </div>
-</section>
+
+<%@ include file="footer.jsp" %>  
+
+</body>
+</html>

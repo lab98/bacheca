@@ -49,13 +49,18 @@ public class SchermataAvvisi extends HttpServlet {
 			
 			Collections.sort(listaAvvisi, new Regolatore());
 			session.setAttribute("avvisiValidi", listaAvvisi);
+			
+			/*
 			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
 			dispatcher.include(request, response);
 			dispatcher = request.getRequestDispatcher(basePath+"navbar.jsp");
 			dispatcher.include(request, response);
+			*/
 			
 			//dispatcher = request.getRequestDispatcher(basePath+"schermataAvvisi.jsp");
-			dispatcher = request.getRequestDispatcher(basePath+"SchermataAvvisi_NEW.jsp");
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"SchermataAvvisi_NEW.jsp");
+			//dispatcher = request.getRequestDispatcher(basePath+"SchermataAvvisi_NEW.jsp");
 			//dispatcher = request.getRequestDispatcher(basePath+"prova.jsp");
 			dispatcher.include(request, response);
 			/*
