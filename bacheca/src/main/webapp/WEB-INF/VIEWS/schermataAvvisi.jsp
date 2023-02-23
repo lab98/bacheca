@@ -4,6 +4,7 @@
 <%@ page import="models.Messaggio" %>
 <%@ page import="java.util.LinkedList" %>
 <% LinkedList<Avviso> avvisi = (LinkedList<Avviso>)session.getAttribute("avvisiValidi");%>
+
 <section>
 <div class="card-container">
 <%if (avvisi.size()>0){ for(int i = 0; i<avvisi.size(); i++){%>
@@ -20,6 +21,7 @@
  <%}}%>
 		
 	</div>
+	
 <script>
 const cardContainer = document.querySelector('.card-container');
 const cards = document.querySelectorAll('.card');

@@ -2,74 +2,115 @@
 
 #carosello_avvisi{
  	
-/* margin: -100px 0 0 -150px;
- top: 50%;
-  left: 50%;
-    height: 80%;
-         
-  width: 100%;
-  height: 100%;
-*/
-     
-/*  width: 100%;
-  height: 50%; 
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  text-align: center;  */
   
     position: relative;
       max-width: 100%;
   height:100vh; 
-  padding-bottom: 50px;
-  display: flex; 
+ display: flex; 
+   padding: 10px;
+   
+
   
 }
+
 
 .carousel-inner{
 	  width: 100%;
-/*   height: 100%;
-  position: relative;
-  display: flex; */
+	padding-left: 20px;
+	padding-right: 20px;
+	 
+ 	
 }
 
 
-/* .card {
-    margin-bottom: 20px;
-  }
-  
-.card {
-  background-color: #f8f9fa;
-  border-radius: 0.5rem;
-} */
 
 .card-title_text-secondary h1 {
   margin-bottom: 0;
   text-align: center;
-  font-size: 5vw
+  font-size: 5vw;
+  padding-bottom:10px;
+}
+
+.card-content{
+	
+	border-style: solid;
+	
 }
 
 .card-content h3 {
   text-align: center;
-  
-/*   
-	padding-top: 2px;
-	padding-right: 30px;
-  padding-left: 80px; 
-    padding-bottom: 50px;
-    */
-
-  
+/* 	background-color: black; */
+	padding: 2px;
+  text-justify: inter-word;
   font-size: 6vh;
   overflow-wrap:  break-word;
+
 }
 
-.card-content p {
-	display: inline;
-	text-align: center;
-	  padding-top: 50px;
-  padding-right: 30px;
-  padding-bottom: 50px;
-  padding-left: 80px;
+/* ---------------- BARRA SCORREVOLE -------- */
+
+
+
+ *, *::before, *::after{
+  -webkit-box-sizing:padding-box;
+  box-sizing:padding-box;
+} 
+
+
+
+ul,
+li,
+p {
+/*   margin: 0;
+  padding: 0; */
+  font-family: verdana;
+  font-size: 40pt;
 }
 
+.tickerwrapper {
+  /* the outer div */
+  
+/*   position: relative; */
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  left:0%;
+  border: 1px solid #444;
+  background: rgb(183, 0, 0);
+  width: 100%;
+  height: 90px;
+  overflow: hidden; 
+  cursor: pointer;
+}
+
+ul.list {
+/*   position: relative;
+ */  
+ display: inline-block;
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+
+ul.list.cloned {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+}
+
+ul.listitem{
+	
+	display: inline-block;
+}
+
+ul.list li {
+  float: left;
+  padding-left: 20px;
+}
+
+.barra {
+	white-space: nowrap;
+        overflow: hidden;
+        color: white;
+}

@@ -42,7 +42,7 @@
       <button type="submit"  class="btn btn-primary">Pubblica</button>
     </form>
     
-    <div class="messaggio_avviso">
+   <div class="messaggio_avviso">
     <% if(m != null) { 
     	if(m.getJsp()=="aggiungiAvviso"&& m.getCodice()==1){%>
     	
@@ -55,12 +55,16 @@
 			<div id="errore" class="alert alert-success">
     			<strong>Errore!</strong> ${messaggio.testo}
     		</div>
+    		
+        
 	<%	}
     	session.removeAttribute("messaggio");
 		} %>
 		
     </div>
+    
   </div>
+  
   
 
 </section>
