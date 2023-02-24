@@ -11,8 +11,6 @@
 
 <%@ include file="meta.jsp" %>
 
-<title>Insert title here</title>
-
 <%@ include file="header.jsp" %>  
 <%@ include file="navbarUser.jsp" %>  
 
@@ -33,42 +31,35 @@
         </div>
         <button type="submit" class="btn btn-primary">Reimposta Password</button>
       </form>
-    </div>
-    
-    <div class="row">
-		<div class="col-2">
-		</div>
+      
+      <div class="row">
+
 		<div class="col-8">
-		<% if(m != null) { if(m.getJsp()=="resetPassword"&& m.getCodice()==0){%>
-		    <div id="errore" class="alert alert-danger">
-    			<strong>Errore!</strong> ${messaggio.testo}
-    		</div>
-    	
-		<%	session.removeAttribute("messaggio");
-		}} %>
-			
-  			
-		</div>
-		<div class="col-2">
-		</div>
-</div>
-<div class="row">
-		<div class="col-2">
-		</div>
-		<div class="col-8">
-		<% if(m != null) { if(m.getJsp()=="resetPassword"&& m.getCodice()==1){%>
+		<% if(m != null) { 
+			if(m.getJsp()=="resetPassword"&& m.getCodice()==1){
+			%>
 		    <div id="successo" class="alert alert-success">
     			<strong>Successo!</strong> ${messaggio.testo}
     		</div>
     	
 		<%	session.removeAttribute("messaggio");
+		
+			}else{
+			%>
+			<div id="errore" class="alert alert-danger">
+			<strong>Errore!</strong> ${messaggio.testo}
+			</div>
+			
+			<% session.removeAttribute("messaggio");
 		}} %>
 			
   			
 		</div>
-		<div class="col-2">
+
 		</div>
-</div>
+    </div>
+
+
 
 <%@ include file="footer.jsp" %>  
 

@@ -3,7 +3,7 @@
 
 
 <footer class="footer">
-  <div class="container">
+<!--   <div class="container"> -->
     <div class="row">
       <div class="col-md-6 col-sm-12">
         <h4>Comando Provinciale Vigili Del Fuoco Palermo</h4>
@@ -18,7 +18,7 @@
         </ul>
       </div>
     </div>
-  </div>
+<!--   </div> -->
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

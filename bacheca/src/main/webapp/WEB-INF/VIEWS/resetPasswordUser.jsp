@@ -11,8 +11,6 @@
 
 <%@ include file="meta.jsp" %>
 
-<title>Insert title here</title>
-
 <%@ include file="header.jsp" %>  
 <%@ include file="navbarUser.jsp" %>  
 

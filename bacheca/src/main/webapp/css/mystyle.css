@@ -1,19 +1,11 @@
-/* Navbar */
 
 
-.navbar {
-  padding: 1rem;
-}
-html, body {
- 
-/*     top:0;
-    bottom:0;
-    left:0;
-    right:0; */
-    
+/* body {
+  
     height:100%;
-
-}
+    min-height:100vh;
+	
+} */
 
 .messaggio_avviso{
 	padding:10px;
@@ -21,33 +13,41 @@ html, body {
 	
 }
 
-/* section {
-	padding-bottom: 20px;
-	height: 100%;
+
+
+.container {
+	 
+	padding:10px;
+	 position: relative;
 	
-	
-} */
+}
+
+
+/*-----------FOOTER-------------------
+*/
+
+.row{
+	margin:0px;
+}
 
 .footer {
-/*   position: -webkit-sticky;
-  position: sticky; */
-  bottom: 0;
+
   background-color: #333;
   color: #fff;
-  height: auto;
-/*   position: absolute; */
+/*   height: auto;
+  position: relative; 
+  top: 45px;
+  bottom: 0px; 
   width: 100%;
-  
-  
+   */
+   
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto; 
   
 }
 
-
-/* .footer */ .container {
-  padding-top: 10px;
-  padding-bottom: 20px; 
-	
-}
 
 .footer ul {
   margin: 0;
@@ -80,7 +80,9 @@ html, body {
   }
 }
 
-/* Side menu */
+
+/*-----------SIDE MENU-------------------
+*/
 .side-menu {
   background-color: red;
   position: fixed;
@@ -92,9 +94,20 @@ html, body {
   display: none;
 }
 
+
+/*-----------NAVBAR-------------------
+*/
+
+.navbar.navbar-expand-lg.navbar-light.bg-danger{
+	
+	background-color: green;
+	padding:0;
+}
+
 .side-menu .nav-link {
   color: #fff !important;
 }
+
 @media (max-width: 991.98px) {
 	
   .navbar-collapse {
@@ -139,8 +152,10 @@ html, body {
   margin-top: 10px;
 }
 
-body {
-	margin: 0;
+.card-title{
+	
+	font-weight: bold;
+	margin:0px;
 }
 
 .card-container {
@@ -148,20 +163,17 @@ body {
 	overflow-y: scroll;
 }
 
-/* .card {
-    margin-bottom: 20px;
-  }
-  
-.card {
-  background-color: #f8f9fa;
-  border-radius: 0.5rem;
-} */
 
 .card {
 	margin: 10px;
-	padding: 20px;
+ 	padding: 10px; 
 	background-color: #f9f9f9;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-/* ------------------------------------------------------ */  
+/* --------------------------------------------------- */  
+
+#errore, #successo{
+	margin-top: 10px;
+	margin-bottom:0px;
+}

@@ -42,7 +42,8 @@ public class GestioneAvvisi extends HttpServlet {
 			System.out.println(utente.getIdUtente());
 			LinkedList<Avviso> listaAvvisi = Query.getListaAvvisiUtente(utente.getIdUtente());
 			session.setAttribute("listaAvvisi", listaAvvisi);
-			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
+			
+/*			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
 			dispatcher.include(request, response);
 			dispatcher = request.getRequestDispatcher(basePath+"navbarUser.jsp");
 			dispatcher.include(request, response);
@@ -50,6 +51,11 @@ public class GestioneAvvisi extends HttpServlet {
 			dispatcher.include(request, response);
 			dispatcher = request.getRequestDispatcher(basePath+"footer.jsp");
 			dispatcher.include(request,response);
+*/			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"gestioneAvvisi.jsp");
+			//RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"provaAvvisiVecchio.jsp");
+			dispatcher.include(request, response);
+			
 			}catch(Exception e) {}
 	}
 

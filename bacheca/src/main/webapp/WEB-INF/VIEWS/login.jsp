@@ -9,8 +9,6 @@
 
 <%@ include file="meta.jsp" %>
 
-<title>Insert title here</title>
-
 <%@ include file="header.jsp" %>  
 <%@ include file="navbar.jsp" %>  
 
@@ -24,7 +22,7 @@
         	});
         });
 </script>
-    <div class="container mt-5">
+    <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
           <div class="card">

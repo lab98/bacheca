@@ -8,9 +8,6 @@
 <head>
 <!-- <meta charset="UTF-8"> -->
 
-
-<title>Insert title here</title>
-
 <%@ include file="header.jsp" %>  
 <%@ include file="navbarUser.jsp" %>  
 
@@ -65,24 +62,23 @@
     			<strong>Successo!</strong> ${messaggio.testo}
     		</div> 
     	
-		<%}else{%>
+		<%session.removeAttribute("messaggio");
+		
+    	}else{%>
 		
 			<div id="errore" class="alert alert-success">
     			<strong>Errore!</strong> ${messaggio.testo}
     		</div>
     		
         
-	<%	}
-    	session.removeAttribute("messaggio");
-		} %>
+	<%	session.removeAttribute("messaggio");
+		}
+	} %>
 		
     </div>
     
   </div>
   
-  
-
-<!-- </section> -->
 
 <%@ include file="footer.jsp" %>  
 

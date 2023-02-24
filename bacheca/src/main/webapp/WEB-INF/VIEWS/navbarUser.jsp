@@ -10,13 +10,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link text-white" href="UserPage">Home</a>
+            <a class="nav-link text-white" href="UserPage">Pubblica Avviso</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="GestioneAvvisi">Avvisi</a>
+            <a class="nav-link text-white" href="GestioneAvvisi">Gestione Avvisi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="ResetPassword">Password</a>
+            <a class="nav-link text-white" href="ResetPassword">Cambia Password</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="Logout">Logout</a>
