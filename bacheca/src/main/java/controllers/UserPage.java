@@ -41,22 +41,12 @@ public class UserPage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-/*		RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
-		dispatcher.include(request, response);
-		dispatcher = request.getRequestDispatcher(basePath+"navbarUser.jsp");
-		dispatcher.include(request, response);
-		dispatcher = request.getRequestDispatcher(basePath+"aggiungiAvviso.jsp");
-		dispatcher.include(request, response);
-		dispatcher = request.getRequestDispatcher(basePath+"footer.jsp");
-		dispatcher.include(request,response);
-		
-		*/
+
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"aggiungiAvviso.jsp");
 		dispatcher.include(request, response);
-
+		
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

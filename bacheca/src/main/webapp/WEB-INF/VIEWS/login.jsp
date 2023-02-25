@@ -33,7 +33,7 @@
               <form action="Login" class="login" method="post">
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="nome.cognome@vigilfuoco.it" pattern="[^@]+@vigilfuoco.it" required>
+                  <input type="text" class="form-control" id="email" name="email" placeholder="nome.cognome@vigilfuoco.it" pattern="[^@]+@vigilfuoco.it" value="@vigilfuoco.it" required>
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>

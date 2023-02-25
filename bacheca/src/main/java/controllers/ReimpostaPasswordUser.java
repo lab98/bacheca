@@ -40,6 +40,7 @@ public class ReimpostaPasswordUser extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("idUtente"));
 		System.out.println(id);
 		Utente utente = Query.getUtenteFromId(id);
+		
 		session.setAttribute("modificato", utente);
 
 		/*	
@@ -55,6 +56,8 @@ public class ReimpostaPasswordUser extends HttpServlet {
 		*/
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"resetPasswordUser.jsp");
+
+
 		dispatcher.include(request, response);		
 		
 	
@@ -70,6 +73,9 @@ public class ReimpostaPasswordUser extends HttpServlet {
 		try {
 			HttpSession session = request.getSession();
 			Utente utente = (Utente) session.getAttribute("modificato");
+			
+			System.out.println("sono REIMPOSTA PASSWORD l'utente impostato e "+ utente);
+			
 			String password = request.getParameter("password");
 			String confpass= request.getParameter("confirm-password");
 			if(password.equals(confpass)) {

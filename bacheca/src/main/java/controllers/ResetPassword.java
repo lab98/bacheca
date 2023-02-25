@@ -89,6 +89,10 @@ public class ResetPassword extends HttpServlet {
 		try {
 			HttpSession session = request.getSession();
 			Utente utente = (Utente) session.getAttribute("utente");
+			
+			System.out.println("sono RESET PASSWORD l'utente impostato e "+ utente);
+
+			
 			String password = request.getParameter("password");
 			String confpass= request.getParameter("confirm-password");
 			if(password.equals(confpass)) {

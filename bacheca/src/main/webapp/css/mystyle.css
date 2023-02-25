@@ -1,12 +1,4 @@
 
-
-/* body {
-  
-    height:100%;
-    min-height:100vh;
-	
-} */
-
 .messaggio_avviso{
 	padding:10px;
 	display : block;
@@ -15,11 +7,10 @@
 
 
 
-.container {
-	 
+.container {	 
 	padding:10px;
 	 position: relative;
-	
+	height:100%;
 }
 
 
@@ -34,17 +25,12 @@
 
   background-color: #333;
   color: #fff;
-/*   height: auto;
-  position: relative; 
-  top: 45px;
-  bottom: 0px; 
-  width: 100%;
-   */
-   
-  position: absolute;
+  
   bottom: 0;
   width: 100%;
   height: auto; 
+  padding-top:10px;
+  padding-bottom:10px;
   
 }
 
@@ -177,3 +163,7 @@
 	margin-top: 10px;
 	margin-bottom:0px;
 }
+
+/* --------------------------------------------------- */  
+
+

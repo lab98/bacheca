@@ -11,8 +11,18 @@
 
 <%@ include file="meta.jsp" %>
 
-<%@ include file="header.jsp" %>  
-<%@ include file="navbarUser.jsp" %>  
+<%@ include file="header.jsp" %>
+
+<%
+	if(utente.isTipo()){ // se l'utente è admin
+		%> <%@ include file="navbarAdmin.jsp" %>     <% 
+	}else{
+		%> <%@ include file="navbarUser.jsp" %>	<%
+	}
+%>
+
+  
+  
 
 </head>
 <body>   
@@ -20,7 +30,9 @@
 
     <div class="container">
       <h1>Modifica Password</h1>
+      
       <form action="ResetPassword" method="post">
+      
         <div class="form-group">
           <label for="password">Nuova Password</label>
           <input type="password" class="form-control" id="password" name="password" placeholder="Inserisci la nuova password" required>
@@ -42,7 +54,7 @@
     			<strong>Successo!</strong> ${messaggio.testo}
     		</div>
     	
-		<%	session.removeAttribute("messaggio");
+		<% session.removeAttribute("messaggio");
 		
 			}else{
 			%>
@@ -57,6 +69,8 @@
 		</div>
 
 		</div>
+		
+		
     </div>
 
 

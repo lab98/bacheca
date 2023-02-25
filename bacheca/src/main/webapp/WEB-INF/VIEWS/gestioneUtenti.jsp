@@ -5,7 +5,21 @@
 <%@ page import="java.util.LinkedList" %>
 <% Messaggio m = (Messaggio)session.getAttribute("messaggio"); %>
 <% LinkedList<Utente> utenti = (LinkedList<Utente>)session.getAttribute("listaUtenti"); %>
-<section>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<%@ include file="meta.jsp" %>
+
+<%@ include file="header.jsp" %>  
+<%@ include file="navbarAdmin.jsp" %>  
+
+</head>
+<body>
+
+
 <script type="text/javascript">
         $(document).ready(function() {
         	
@@ -28,22 +42,28 @@
     	
 </script>
 <div class="container">
+
+	<h1>Gestione Utenti</h1>
   <div class="row">
-    <div class="col-md-4">
-      <!-- Search options -->
+
  <div class="col-md-8">
   <form>
     <div class="form-group">
-      <label for="search-input">Search:</label>
+      <label for="search-input">Cerca Utente:</label>
       <input type="text" class="form-control" id="search-input">
     </div>
-    <button type="submit" class="btn btn-primary" id="search-button">Search</button>
+    
+    <div class='btn btn-primary' id="search-button" onclick="search()">Cerca</div>	 
+    
   </form>
 </div>
-</div>
-<div class="col-md-8">
-      <!-- User card section -->
-<div class="col-md-10" id="card-section">
+
+
+
+<div class="col-md-10" id="card_section">
+
+
+<h3>Utenti trovati:</h3>
 <%if (utenti.size()>0){ for(int i = 0; i<utenti.size(); i++){%>
   <div class="card">
     <div class="card-body">
@@ -56,7 +76,7 @@
   </div>
  <%}} %>
 </div>
-    </div>
+
   </div>
 </div>
 
@@ -74,56 +94,9 @@
 		<div class="col-2">
 		</div>
 	</div>
-<script type="text/javascript">
-function search() {
-	  // Get the input value and convert it to lowercase
-	  var input = document.getElementById("search-input").value.toLowerCase();
-	  // Get the card section element
-	  var cards = document.getElementById("card-section").getElementsByClassName("card");
 
-	  // Loop through all the cards and hide those that don't match the search query
-	  for (var i = 0; i < cards.length; i++) {
-	    var name = cards[i].getElementsByClassName("card-title")[0];
-	    var bio = cards[i].getElementsByClassName("card-text")[0];
-	    if (name.innerHTML.toLowerCase().indexOf(input) > -1 || bio.innerHTML.toLowerCase().indexOf(input) > -1) {
-	      cards[i].style.display = "";
-	    } else {
-	      cards[i].style.display = "none";
-	    }
-	  }
-	}
-
-
-// Get the search form and submit button
-var form = document.getElementById("search-form");
-var button = document.getElementById("search-button");
-function search() {
-	  // Get the input value and convert it to lowercase
-	  var input = document.getElementById("search-input").value.toLowerCase();
-	  // Get the card section element
-	  var cards = document.getElementById("card-section").getElementsByClassName("card");
-
-	  // Loop through all the cards and hide those that don't match the search query
-	  for (var i = 0; i < cards.length; i++) {
-	    var name = cards[i].getElementsByClassName("card-title")[0];
-	    var bio = cards[i].getElementsByClassName("card-text")[0];
-	    if (name.innerHTML.toLowerCase().indexOf(input) > -1 || bio.innerHTML.toLowerCase().indexOf(input) > -1) {
-	      cards[i].style.display = "";
-	    } else {
-	      cards[i].style.display = "none";
-	    }
-	  }
-	}
-
-
-// Get the search form and submit button
-var form = document.getElementById("search-form");
-var button = document.getElementById("search-button");
-
-// Add event listener to submit button
-button.addEventListener("click", function(event) {
-event.preventDefault();
-search();
-});
-</script>
-</section>
+ 	<%@ include file="footer.jsp" %> 
+ 	
+</body>
+<script src="javascript/GestioneAvvisi.js"></script>
+</html>

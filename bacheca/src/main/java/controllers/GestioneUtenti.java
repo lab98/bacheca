@@ -41,17 +41,29 @@ public class GestioneUtenti extends HttpServlet {
 			LinkedList<Utente> utenti = Query.getUtentiFromTipo(false);
 			System.out.println(utenti);
 			session.setAttribute("listaUtenti", utenti);
-			String message ="Lista  User Aggiornata ";
-			Messaggio m = new Messaggio(1,"gestioneUtenti",message);
-			session.setAttribute("messaggio", m);
-			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"header.jsp");
+			
+			/*
+			 * String message ="Lista  User Aggiornata "; Messaggio m = new
+			 * Messaggio(1,"gestioneUtenti",message); session.setAttribute("messaggio", m);
+			 */
+			
+			
+			/*
+			 * RequestDispatcher dispatcher =
+			 * request.getRequestDispatcher(basePath+"header.jsp");
+			 * dispatcher.include(request, response); dispatcher =
+			 * request.getRequestDispatcher(basePath+"navbarAdmin.jsp");
+			 * dispatcher.include(request, response); dispatcher =
+			 * request.getRequestDispatcher(basePath+"gestioneUtenti.jsp");
+			 * dispatcher.include(request, response); dispatcher =
+			 * request.getRequestDispatcher(basePath+"footer.jsp");
+			 * dispatcher.include(request,response);
+			 */
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(basePath+"gestioneUtenti.jsp");
 			dispatcher.include(request, response);
-			dispatcher = request.getRequestDispatcher(basePath+"navbarAdmin.jsp");
-			dispatcher.include(request, response);
-			dispatcher = request.getRequestDispatcher(basePath+"gestioneUtenti.jsp");
-			dispatcher.include(request, response);
-			dispatcher = request.getRequestDispatcher(basePath+"footer.jsp");
-			dispatcher.include(request,response);
+			
+			
 		}catch(Exception e) {
 			response.sendRedirect(request.getContextPath()+"/AdminPage");
 		}

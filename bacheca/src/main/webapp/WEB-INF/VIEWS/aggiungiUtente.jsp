@@ -5,6 +5,7 @@
 
 
 <section>
+
  <script type="text/javascript">
         $(document).ready(function() {
         	$("#nome, #cognome, #email, #password, #ruolo").keyup(function(){
@@ -12,6 +13,7 @@
         	});
         });
 </script>
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -20,12 +22,13 @@
           <h3 class="card-title mb-0 text-dark" >Aggiungi Nuovo Utente</h3>
         </div>
         <div class="card-body">
+        
           <form method="post" action="AdminPage">
             <div class="mb-3">
               <label for="nome" class="form-label">Nome:</label>
               <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
-            </div>
+
               <div class="mb-3">
               <label for="cognome" class="form-label">Cognome:</label>
               <input type="text" class="form-control" id="cognome" name="cognome" required>
@@ -52,6 +55,7 @@
             </div>
             <button type="submit" class="btn-primary">Aggiungi</button>
           </form>
+                      </div>
         </div>
       </div>
     </div>
