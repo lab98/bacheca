@@ -10,9 +10,10 @@
       Utente utente_loggato = (Utente)session.getAttribute("utente");
       
       if(utente_loggato!=null){
+    	  out.print("navbar user "+ utente_loggato.getNome());
     	  %>  
     	    
-<section>
+
    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
     <div class="container-fluid">
       <a class="navbar-brand text-white" href="AdminPage">Bacheca COM-PA</a>
@@ -42,7 +43,7 @@
     </div>
   </nav>
 
-</section>
+
 
 	<% 
       }else{

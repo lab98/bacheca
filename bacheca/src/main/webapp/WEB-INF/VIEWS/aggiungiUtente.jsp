@@ -42,7 +42,7 @@
               <input type="password" class="form-control" id="password" name="password" required>
             </div>
               <div class="mb-3">
-              <label for="ruolo" class="form-label">Ruolo:</label>
+              <label for="ruolo" class="form-label">Ruolo VVF:</label>
               <input type="text" class="form-control" id="ruolo" name="ruolo" required>
             </div>
             <div class="form-group mb-3">

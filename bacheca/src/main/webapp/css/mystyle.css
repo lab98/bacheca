@@ -1,3 +1,10 @@
+/* html, body{
+	
+	min-height:100vh;
+	height:100%;
+	
+} */
+
 
 .messaggio_avviso{
 	padding:10px;
@@ -5,12 +12,16 @@
 	
 }
 
+/* .page-container {	 
+	position: relative;
+	min-height: 100vh;
+} */
 
 
 .container {	 
 	padding:10px;
-	 position: relative;
-	height:100%;
+ 	position: relative;
+
 }
 
 
@@ -25,9 +36,9 @@
 
   background-color: #333;
   color: #fff;
-  
-  bottom: 0;
-  width: 100%;
+  position: absolute;
+    bottom: 0; 
+   width: 100%;
   height: auto; 
   padding-top:10px;
   padding-bottom:10px;
@@ -161,9 +172,11 @@
 
 #errore, #successo{
 	margin-top: 10px;
-	margin-bottom:0px;
+	margin-bottom: 10px;
 }
 
 /* --------------------------------------------------- */  
 
-
+#tipo{
+	font-size: 16px;
+}

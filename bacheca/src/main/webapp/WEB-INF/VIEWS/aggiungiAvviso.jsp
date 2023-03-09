@@ -14,8 +14,9 @@
 </head>
 <body>
 
+<div class= "page-container">
 
-    <div class="container">
+   <div class="container">
     <h1 class="my-4">Pubblica Avviso</h1>
     <form action="UserPage" method="post" enctype="multipart/form-data">
       <div class="mb-3">
@@ -79,7 +80,8 @@
   </div>
   
 
-<%@ include file="footer.jsp" %>  
+<%-- <%@ include file="footer.jsp" %>   --%>
+      </div>
 
 </body>
 </html>

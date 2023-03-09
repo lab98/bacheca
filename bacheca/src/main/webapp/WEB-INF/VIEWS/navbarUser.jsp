@@ -10,6 +10,7 @@
       Utente utente_loggato = (Utente)session.getAttribute("utente");
       
       if(utente_loggato!=null){
+    	  out.print("navbar admin " + utente_loggato.getNome());
     	  %>
 
     	  <nav class="navbar navbar-expand-lg navbar-light bg-danger">

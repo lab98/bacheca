@@ -42,29 +42,29 @@ function saveChanges(id) {
 <section>
 <div class="card">
   <div class="card-header">
-    <h2 class="card-title">User Recap</h2>
+    <h2 class="card-title">Modifica utente</h2>
   </div>
   <div class="card-body">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <span>Nome:</span>
         <span id="nome"><% out.print(utente.getNome()); %></span>
-        <button class="btn btn-link" onclick="editValue('nome')">Edit</button>
+        <button class="btn btn-link" onclick="editValue('nome')">Modifica</button>
       </li>
       <li class="list-group-item">
         <span>Cognome:</span>
         <span id="cognome"><% out.print(utente.getCognome()); %></span>
-        <button class="btn btn-link" onclick="editValue('cognome')">Edit</button>
+        <button class="btn btn-link" onclick="editValue('cognome')">Modifica</button>
       </li>
       <li class="list-group-item">
         <span>Email:</span>
         <span id="email"><% out.print(utente.getEmail());%></span>
-        <button class="btn btn-link" onclick="editValue('email')">Edit</button>
+        <button class="btn btn-link" onclick="editValue('email')">Modifica</button>
       </li>
       <li class="list-group-item">
         <span>Ruolo:</span>
         <span id="ruolo"><% out.print(utente.getRuolo());%></span>
-        <button class="btn btn-link" onclick="editValue('ruolo')">Edit</button>
+        <button class="btn btn-link" onclick="editValue('ruolo')">Modifica</button>
       </li>
     </ul>
   </div>

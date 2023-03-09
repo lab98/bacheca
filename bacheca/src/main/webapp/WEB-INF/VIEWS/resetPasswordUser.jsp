@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
     <%@ page import="models.Utente" %>
     <%@ page import="models.Messaggio" %>
-    <% Utente utente_loggato = (Utente)session.getAttribute("utente"); %>
-    <% Utente utente = (Utente)session.getAttribute("modificato"); %>
+    <% Utente utente_loggato1 = (Utente)session.getAttribute("utente"); %>
+    <% Utente utente_modificato = (Utente)session.getAttribute("modificato"); %>
     <% Messaggio m= (Messaggio) session.getAttribute("messaggio");%>
   
  <!DOCTYPE html>
@@ -15,7 +15,7 @@
 <%@ include file="header.jsp" %>
 
 <%
-	if(utente_loggato.isTipo()){ // se l'utente è admin
+	if(utente_loggato1.isTipo()){ // se l'utente è admin
 		%> <%@ include file="navbarAdmin.jsp" %>     <% 
 	}else{
 		%> <%@ include file="navbarUser.jsp" %>	<%
@@ -30,7 +30,7 @@
 
 
     <div class="container">
-      <h1>Modifica Password</h1>
+      <h1>Modifica Password di <% out.print(utente_modificato.getNome()+ " " + utente_modificato.getCognome());%></h1>
       
       <form action="ReimpostaPasswordUser" method="post">
       
@@ -76,7 +76,7 @@
 
 
 
-<%@ include file="footer.jsp" %>  
+<%-- <%@ include file="footer.jsp" %>   --%>
 
 </body>
 </html>

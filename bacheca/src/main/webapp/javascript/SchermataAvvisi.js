@@ -27,7 +27,7 @@ $clonedList.addClass("cloned").appendTo($tickerWrapper);
 
 //TimelineMax
 var infinite = new TimelineMax({repeat: -1, paused: true});
-var time = 100; //più è alto più è lento, ma la velocità cambia anche in base al numero di avvisi presenti 
+var time = 10; //più è alto più è lento, ma la velocità cambia anche in base al numero di avvisi presenti 
 
 
 

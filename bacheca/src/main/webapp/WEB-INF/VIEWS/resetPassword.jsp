@@ -21,13 +21,12 @@
 	}
 %>
 
-  
-  
+ 
 
 </head>
 <body>   
 
-
+<div class= "page-container">
     <div class="container">
       <h1>Modifica Password</h1>
       
@@ -75,7 +74,8 @@
 
 
 
-<%@ include file="footer.jsp" %>  
+<%-- <%@ include file="footer.jsp" %>   --%>
 
+    </div>
 </body>
 </html>

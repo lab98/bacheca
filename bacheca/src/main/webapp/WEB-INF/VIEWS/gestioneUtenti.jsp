@@ -95,7 +95,7 @@
 		</div>
 	</div>
 
- 	<%@ include file="footer.jsp" %> 
+<%--  	<%@ include file="footer.jsp" %>  --%>
  	
 </body>
 <script src="javascript/GestioneAvvisi.js"></script>

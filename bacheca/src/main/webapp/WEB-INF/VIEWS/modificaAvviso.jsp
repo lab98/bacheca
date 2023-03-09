@@ -40,7 +40,7 @@ $(document).ready(function() {
       <button type="submit" onclick="saveChanges(<% out.print(avviso.getIdAvviso());%>)" class="btn btn-primary">Salva Modifiche</button>
       
       <div class="messaggio_avviso">
-<%-- 		    <% if(m != null) { 
+		    <% if(m != null) { 
 		    	if(m.getJsp()=="aggiungiAvviso"&& m.getCodice()==1){%>
 		    	
 		 		    <div id="successo" class="alert alert-success">
@@ -54,7 +54,7 @@ $(document).ready(function() {
 		    		</div>
 			<%	}
 		    	session.removeAttribute("messaggio");
-				} %> --%>
+				} %> 
 				
     </div>
     </form>
