@@ -91,10 +91,11 @@ public class UserPage extends HttpServlet {
 
 			boolean published = Query.aggiungiAvviso(utente.getIdUtente(), livello, datascad, testo, titolo);
 			 System.out.println("ciao7");
-			boolean isAllegato=true;
+			boolean isAllegato=false;
 
 			int idavviso = Query.getLastAvvisoIndex(utente.getIdUtente());
-			if(percorso!=null) {
+			if(!percorso.equals(null)) {
+				System.out.println("inserimento allegato "+idavviso+" "+percorso);
 				isAllegato=Query.aggiungiAllegato(idavviso, percorso);
 			}
 			if(published&&isAllegato) {
@@ -106,10 +107,11 @@ public class UserPage extends HttpServlet {
 				String message = "Avviso non Pubblicato correttamente ";
 				Messaggio m = new Messaggio(0,"aggiungiAvviso",message);
 				session.setAttribute("messaggio", m);
-				response.sendRedirect(request.getContextPath()+"/ErroreGenerico");
+				response.sendRedirect(request.getContextPath()+"/UserPage");
 			}
 			
 		}catch(Exception e) {
+			System.out.print("errore inatteso");
 			response.sendRedirect(request.getContextPath()+"/ErroreGenerico");
 		}
 	}

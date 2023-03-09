@@ -395,6 +395,7 @@ public class Query {
 		statement.setString(2, percorso);
 		statement.executeUpdate();
 		cn.close();
+		System.out.print("allegato aggiunto");
 		return true;
 	}
 	
